@@ -29,7 +29,7 @@ export default function EMSPage() {
       <SolutionStructuredData
         name="Energy Management System"
         description="Comprehensive energy monitoring and management solution that helps businesses reduce energy consumption, optimize operations, and meet sustainability goals."
-        image="/images/ems-og.jpg"
+        image="/solutions/ems/ems1.png"
         provider="SenseLive"
         url="https://senselive.com/solutions/ems"
       />
@@ -37,7 +37,7 @@ export default function EMSPage() {
         title="Energy Management System"
         description="Comprehensive energy monitoring and management solution that helps businesses reduce energy consumption, optimize operations, and meet sustainability goals."
         badge="Energy Management"
-        heroImage="/placeholder.svg?height=500&width=700"
+        heroImage="/solutions/ems/ems1.png"
         features={[
           {
             icon: <BarChart3 className="h-6 w-6 text-primary" />,
@@ -64,7 +64,7 @@ export default function EMSPage() {
               "Seamlessly integrate with existing BMS, SCADA, and other enterprise systems for a unified approach.",
           },
         ]}
-        architectureImage="/placeholder.svg?height=500&width=700"
+        architectureImage="/solutions/ems/ems2.png"
         architectureSteps={[
           {
             title: "Data Collection",
@@ -98,7 +98,7 @@ export default function EMSPage() {
               "Reduce peak demand charges",
               "Typical ROI within 12-18 months",
             ],
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/solutions/ems/ems1.png",
           },
           {
             id: "sustainability",

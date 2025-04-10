@@ -53,7 +53,7 @@ export default function WaterManagementPage() {
           description: "Automated reporting for regulatory compliance and environmental standards with audit trails.",
         },
       ]}
-      architectureImage="/placeholder.svg?height=500&width=700"
+      architectureImage="/solutions/wms/wms2.png"
       architectureSteps={[
         {
           title: "Data Collection",
@@ -87,7 +87,7 @@ export default function WaterManagementPage() {
             "Implement effective conservation measures",
             "Support sustainability initiatives",
           ],
-          image: "/placeholder.svg?height=400&width=600",
+          image: "/solutions/wms/wms3.png",
         },
         {
           id: "cost",

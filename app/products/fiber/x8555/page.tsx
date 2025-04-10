@@ -374,7 +374,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/fiber/X8555/X8555img1.png"
                           alt="Bus Bar Monitoring"
                           fill
                           className="object-cover rounded-t-lg"

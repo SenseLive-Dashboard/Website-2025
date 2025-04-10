@@ -141,7 +141,7 @@ export default function SolutionsPage() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
               <Image
-                src="/placeholder.svg?height=500&width=700"
+                src="/solutions/wms/wms1.png"
                 alt="SenseLive Solutions"
                 width={700}
                 height={500}
@@ -168,7 +168,7 @@ export default function SolutionsPage() {
                 step: "1",
                 title: "Consultation",
                 description: "We work with you to understand your specific challenges, goals, and requirements.",
-                icon: "/placeholder.svg?height=40&width=40",
+                icon: "/solutions/wms/wms1.png",
               },
               {
                 step: "2",

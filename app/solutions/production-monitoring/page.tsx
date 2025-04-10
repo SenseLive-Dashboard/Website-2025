@@ -23,7 +23,7 @@ export default function ProductionMonitoringPage() {
         title="Production Monitoring System"
         description="End-to-end production monitoring solution that provides real-time visibility, improves efficiency, and optimizes manufacturing processes."
         badge="Manufacturing Excellence"
-        heroImage="/placeholder.svg?height=500&width=700"
+        heroImage="/solutions/production/production1.png"
         features={[
           {
             icon: <Factory className="h-6 w-6 text-primary" />,
@@ -46,7 +46,7 @@ export default function ProductionMonitoringPage() {
             description: "Securely transmit data to the cloud for remote monitoring and analysis.",
           },
         ]}
-        architectureImage="/placeholder.svg?height=500&width=700"
+        architectureImage="/solutions/production/production2.png"
         architectureSteps={[
           {
             title: "Data Collection",
@@ -78,7 +78,7 @@ export default function ProductionMonitoringPage() {
               "Identify and eliminate bottlenecks",
               "Improve overall equipment effectiveness (OEE)",
             ],
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/solutions/production/production1.png",
           },
           {
             id: "quality",
