@@ -45,17 +45,22 @@ export function ProductImageGallery({ mainImage, galleryImages, productName }: P
   return (
     <>
       <div className="flex flex-col gap-6">
-        <div
-          className="bg-background rounded-lg border flex items-center justify-center cursor-pointer hover:border-primary transition-all"
-          onClick={() => handleImageClick(currentImage)}
-        >
-          <div className="relative w-full max-w-md aspect-square">
-            <Image
-              src={currentImage || "/placeholder.svg?height=500&width=500"} 
-              alt={productName}
-              fill
-              className="object-contain transition-opacity duration-300"
-            />
+        {/* Modified main image container */}
+        <div className="flex justify-center">
+          <div 
+            className="bg-background rounded-lg border inline-flex p-4 cursor-pointer hover:border-primary transition-all"
+            onClick={() => handleImageClick(currentImage)}
+          >
+            <div className="relative">
+              <Image
+                src={currentImage || "/placeholder.svg?height=500&width=500"} 
+                alt={productName}
+                width={500}
+                height={500}
+                className="object-contain max-h-96 w-auto transition-opacity duration-300"
+                style={{ display: 'block' }}
+              />
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-4 gap-4">
@@ -110,4 +115,3 @@ export function ProductImageGallery({ mainImage, galleryImages, productName }: P
     </>
   )
 }
-

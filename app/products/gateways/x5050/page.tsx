@@ -19,12 +19,11 @@ export default function X5050ProductPage() {
   // Product data
   
   const productImages = {
-    main: "/products/connectivity/X7400D/X7400Dimg1.png",
+    main: "/products/gateway/x5050/X5050.png",
     gallery: [
-      "/products/connectivity/X7400D/X7400Dimg1.png",
-      "/products/connectivity/X7400D/X7400Dimg2.png",
-      "/products/connectivity/X7400D/X7400Dimg3.png",
-      
+      "/products/gateway/x5050/X5050.png",
+      "/products/gateway/x5050/X5050.png",
+      "/products/gateway/x5050/X5050.png",
     ],
   }
   const product = {
@@ -157,13 +156,13 @@ export default function X5050ProductPage() {
             <ProductImageGallery
               mainImage={productImages.main}
               galleryImages={productImages.gallery}
-              productName="SenseLive X7400D"
+              productName="SenseLive X5050"
             />
 
             {/* Product Info */}
             <div className="space-y-6">
               <div>
-                <h1 className="text-3xl font-bold">SenseLive X7400D</h1>
+                <h1 className="text-3xl font-bold">SenseLive X5050</h1>
                 <p className="text-xl text-muted-foreground mt-2">RS485 to TCP/IP Modbus Server</p>
               </div>
 

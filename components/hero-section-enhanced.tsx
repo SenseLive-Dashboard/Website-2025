@@ -235,7 +235,7 @@ export function HeroSectionEnhanced() {
     <section
       ref={sectionRef}
       className="relative w-full min-h-[100vh] flex items-center overflow-hidden scroll-snap-align-start"
-      onMouseEnter={() => setAutoplay(false)}
+      onMouseEnter={() => setAutoplay(true)}
       onMouseLeave={() => setAutoplay(true)}
       aria-roledescription="carousel"
       aria-label="SenseLive featured products and solutions"
@@ -244,7 +244,7 @@ export function HeroSectionEnhanced() {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-muted/30 z-0"></div>
 
       {/* Animated boat in background */}
-      <div ref={boatRef} className="absolute bottom-[10%] right-[5%] w-32 h-32 opacity-20 dark:opacity-10 z-0 boat">
+      {/* <div ref={boatRef} className="absolute bottom-[10%] right-[5%] w-32 h-32 opacity-20 dark:opacity-10 z-0 boat">
         <Image
           src="/placeholder.svg?height=128&width=128"
           alt=""
@@ -252,8 +252,8 @@ export function HeroSectionEnhanced() {
           height={128}
           className="object-contain"
           aria-hidden="true"
-        />
-      </div>
+        />  
+      </div> */}
 
       {/* Wave pattern */}
       <div className="absolute bottom-0 left-0 right-0 h-32 opacity-10 z-0" aria-hidden="true">

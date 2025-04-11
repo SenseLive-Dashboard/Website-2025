@@ -264,8 +264,8 @@ export default function AboutPage() {
                     "Launched a production monitoring system for the wire drawing industry with deployments in companies like Salasar and Bansal Wire, featuring our X7700 wireless sensor.",
                   icon: Layers,
                   product: {
-                    name: "X7700 Wireless Sensor",
-                    link: "/products/wireless/x7700",
+                    name: "X7700D Wireless Sensor",
+                    link: "/products/wireless/x7700d",
                   },
                 },
                 {
@@ -389,7 +389,7 @@ export default function AboutPage() {
                   year: "2021-2022",
                   title: "Expansion",
                   products: [
-                    { name: "X7700 Wireless Sensor", link: "/products/wireless/x7700" },
+                    { name: "X7700D Wireless Sensor", link: "/products/wireless/x7700d" },
                     { name: "E7500 Controller", link: "/products/controllers/e7500" },
                     { name: "SL6002A Controller", link: "/products/controllers/sl6002a" },
                   ],

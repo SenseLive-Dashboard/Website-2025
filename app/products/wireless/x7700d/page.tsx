@@ -11,7 +11,7 @@ import { ProductImageGallery } from "@/components/product-image-gallery"
 import { RelatedProducts } from "@/components/related-products"
 
 export const metadata: Metadata = {
-  title: "SenseLive X7700 - DIN-Rail LoRa Device",
+  title: "SenseLive X7700D - DIN-Rail LoRa Device",
   description:
     "High-performance LoRa-based DIN-rail device designed for industrial environments requiring long-range, low-power wireless communication.",
 }
@@ -53,13 +53,13 @@ export default function ProductPage() {
               LoRa/ZigBee Devices
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">SenseLive X7700</span>
+            <span className="text-foreground">SenseLive X7700D</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="flex flex-col space-y-6">
               <div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SenseLive X7700</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SenseLive X7700D</h1>
                 <p className="mt-4 text-xl text-muted-foreground">DIN-Rail LoRa Device</p>
               </div>
 
@@ -81,7 +81,7 @@ export default function ProductPage() {
               <div>
                 <h2 className="text-xl font-semibold mb-2">Short Description</h2>
                 <p className="text-muted-foreground">
-                  SenseLive X7700 is a high-performance LoRa-based DIN-rail device designed for industrial environments
+                  SenseLive X7700D is a high-performance LoRa-based DIN-rail device designed for industrial environments
                   requiring long-range, low-power wireless communication. It supports RS485/Modbus RTU, allowing
                   seamless integration with SCADA, BMS, and remote monitoring applications.
                 </p>
@@ -134,13 +134,13 @@ export default function ProductPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="https://www.senselive.io/downloads/documents/X7700-datasheet.pdf">
+                <Link href="https://www.senselive.io/downloads/documents/X7700D-datasheet.pdf">
                   <Button className="w-full sm:w-auto gap-2">
                     <FileText className="h-4 w-4" />
                     Download Datasheet
                   </Button>
                 </Link>
-                <Link href="https://www.senselive.io/downloads/documents/X7700-manual.pdf">
+                <Link href="https://www.senselive.io/downloads/documents/X7700D-manual.pdf">
                   <Button variant="outline" className="w-full sm:w-auto gap-2">
                     <Download className="h-4 w-4" />
                     User Manual
@@ -156,7 +156,7 @@ export default function ProductPage() {
                 "/products/wireless/X7700D/X7700Dimg2.png",
                 "/products/wireless/X7700D/X7700Dimg2.png",
               ]}
-              productName="SenseLive X7700"
+              productName="SenseLive X7700D"
             />
           </div>
         </div>
@@ -328,7 +328,7 @@ export default function ProductPage() {
                       <p className="text-muted-foreground mb-4">
                         Complete technical specifications and product details
                       </p>
-                      <Link href="https://www.senselive.io/downloads/documents/X7700-datasheet.pdf">
+                      <Link href="https://www.senselive.io/downloads/documents/X7700D-datasheet.pdf">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download PDF
@@ -343,7 +343,7 @@ export default function ProductPage() {
                     <div>
                       <h3 className="text-lg font-semibold mb-1">User Manual</h3>
                       <p className="text-muted-foreground mb-4">Installation, configuration, and operation guide</p>
-                      <Link href="https://www.senselive.io/downloads/documents/X7700-manual.pdf">
+                      <Link href="https://www.senselive.io/downloads/documents/X7700D-manual.pdf">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download PDF
@@ -358,7 +358,7 @@ export default function ProductPage() {
                     <div>
                       <h3 className="text-lg font-semibold mb-1">Configuration Tool</h3>
                       <p className="text-muted-foreground mb-4">Software for device configuration and management</p>
-                      <Link href="https://www.senselive.io/downloads/software/X7700-config-tool.zip">
+                      <Link href="https://www.senselive.io/downloads/software/X7700D-config-tool.zip">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download ZIP
@@ -375,7 +375,7 @@ export default function ProductPage() {
                       <p className="text-muted-foreground mb-4">
                         Latest firmware version with bug fixes and improvements
                       </p>
-                      <Link href="https://www.senselive.io/downloads/firmware/X7700-firmware-v1.2.bin">
+                      <Link href="https://www.senselive.io/downloads/firmware/X7700D-firmware-v1.2.bin">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download Firmware
@@ -430,7 +430,7 @@ export default function ProductPage() {
           <div className="flex flex-col items-center text-center space-y-4">
             <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Need More Information?</h2>
             <p className="text-muted-foreground max-w-[600px]">
-              Contact our team of experts to learn more about the SenseLive X7700 and how it can benefit your
+              Contact our team of experts to learn more about the SenseLive X7700D and how it can benefit your
               application.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -451,10 +451,10 @@ export default function ProductPage() {
               </div>
             </section>
       <ProductStructuredData
-        name="SenseLive X7700"
+        name="SenseLive X7700D"
         description="High-performance LoRa-based DIN-rail device designed for industrial environments requiring long-range, low-power wireless communication."
         image="/placeholder.svg?height=400&width=400"
-        sku="X7700"
+        sku="X7700D"
         brand="SenseLive"
         category="LoRa/ZigBee Devices"
         url="https://www.senselive.io/products/wireless/x7700"
