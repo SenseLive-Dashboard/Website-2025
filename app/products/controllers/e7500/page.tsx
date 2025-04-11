@@ -177,16 +177,8 @@ export default function E7500Page() {
       name: "SenseLive E7000",
       description: "Ethernet-based Remote IO Controller",
       specs: ["4 Digital Inputs", "2 Analog Inputs", "4 Relay Outputs", "Modbus TCP/RTU Support"],
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/products/controllers/e7000/thumbnail.png",
       category: "controllers",
-    },
-    {
-      id: "x5050",
-      name: "SenseLive X5050",
-      description: "RS485 to TCP/IP Modbus Server",
-      specs: ["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"],
-      image: "/placeholder.svg?height=300&width=300",
-      category: "gateways",
     },
     {
       id: "x9000",

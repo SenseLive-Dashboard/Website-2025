@@ -51,7 +51,7 @@ export default function Home() {
       author: "Sarah Johnson",
       role: "Sustainability Manager",
       company: "EcoTech Solutions",
-      logo: "/placeholder.svg?height=40&width=120",
+      logo: "/solutions/wms/wms1.png",
       caseStudyLink: "/case-studies/ecotech-solutions",
       avatar: "/placeholder.svg?height=100&width=100",
     },
@@ -153,7 +153,7 @@ export default function Home() {
       name: "Water Management System",
       description:
         "Intelligent water monitoring and management solution that helps organizations optimize water usage, detect leaks, and ensure water quality.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/solutions/wms/wms1.png",
       badge: "Water Management",
       icon: <Droplets className="h-5 w-5 text-primary" />,
     },
@@ -162,7 +162,7 @@ export default function Home() {
       name: "Digital Checksheet",
       description:
         "Paperless inspection and quality control solution that streamlines processes, ensures compliance, and improves operational efficiency.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/solutions/checklist/checklist1.png",
       badge: "Digital Transformation",
       icon: <ClipboardCheck className="h-5 w-5 text-primary" />,
     },
@@ -171,7 +171,7 @@ export default function Home() {
       name: "Production Monitoring",
       description:
         "End-to-end production monitoring solution that provides real-time visibility, improves efficiency, and optimizes manufacturing processes.",
-      image: "/placeholder.svg?height=300&width=600",
+      image: "/solutions/production/production1.png",
       badge: "Manufacturing Excellence",
       icon: <Factory className="h-5 w-5 text-primary" />,
     },
@@ -253,28 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Key Features */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
-            {keyFeatures.map((feature, index) => (
-              <div key={feature.title} className="animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <Card className="bg-card border-border hover-lift h-full">
-                  <CardHeader className="pb-2">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
-                      {feature.icon}
-                    </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Featured Products */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
@@ -346,7 +325,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="space-y-2 max-w-[800px]">
@@ -362,7 +341,32 @@ export default function Home() {
             <TestimonialCarouselModern testimonials={testimonials} />
           </div>
         </div>
+      </section> */}
+
+      {/* Key Features */}
+      <section className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+            {keyFeatures.map((feature, index) => (
+              <div key={feature.title} className="animate-fade-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <Card className="bg-card border-border hover-lift h-full">
+                  <CardHeader className="pb-2">
+                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                      {feature.icon}
+                    </div>
+                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      
 
       {/* CTA Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-senselive text-white">

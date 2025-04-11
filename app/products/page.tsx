@@ -117,7 +117,7 @@ const allProducts = [
       "Long-Range LoRa Transmission",
       "Secure & Encrypted Communication",
     ],
-    image: "/products/wireless/X7700D/X7700D.png",
+    image: "/products/wireless/X7700D/X7700Dimg1.png",
     category: "wireless",
   },
   {

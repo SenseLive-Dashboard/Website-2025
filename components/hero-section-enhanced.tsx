@@ -20,10 +20,10 @@ export function HeroSectionEnhanced() {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "Advanced IoT Solutions for Industry Leaders",
+      title: "Future-Ready IIoT, for Industrial Transformation",
       description:
         "Reliable hardware and scalable solutions for industrial automation, energy management, and smart infrastructure.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/home/IIOT.png",
       badge: "Industry Leader",
       link: "/products",
     },

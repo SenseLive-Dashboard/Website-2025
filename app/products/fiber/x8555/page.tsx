@@ -212,7 +212,7 @@ export default function SenseCT222Page() {
                     <div className="relative">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
                       <Image
-                        src="/placeholder.svg?height=400&width=600"
+                        src="/products/fiber/X8555/x8555img1.png"
                         alt="SenseCT-222 in use"
                         width={600}
                         height={400}
@@ -393,7 +393,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/complete.png"
                           alt="Power Cable Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -665,7 +665,7 @@ export default function SenseCT222Page() {
                     "RS485 Data Output",
                     "Built-In Dual Relays",
                   ],
-                  image: "/placeholder.svg?height=300&width=300",
+                  image: "/products/wireless-bus-bar/edge8000/complete.png",
                   category: "wireless-bus-bar",
                 },
                 {
@@ -673,7 +673,7 @@ export default function SenseCT222Page() {
                   name: "SenseBT-222",
                   description: "Battery-Powered Wireless Temperature Sensor",
                   specs: ["Long Battery Life", "Wide Range", "Industrial Design", "Wireless Communication"],
-                  image: "/placeholder.svg?height=300&width=300",
+                  image: "/products/wireless-bus-bar/SenseBT222/SenseBT222img1.png",
                   category: "wireless-bus-bar",
                 },
               ].map((product) => (

@@ -17,6 +17,16 @@ export const metadata: Metadata = {
 
 export default function X5050ProductPage() {
   // Product data
+  
+  const productImages = {
+    main: "/products/connectivity/X7400D/X7400Dimg1.png",
+    gallery: [
+      "/products/connectivity/X7400D/X7400Dimg1.png",
+      "/products/connectivity/X7400D/X7400Dimg2.png",
+      "/products/connectivity/X7400D/X7400Dimg3.png",
+      
+    ],
+  }
   const product = {
     id: "x5050",
     name: "SenseLive X5050",
@@ -92,14 +102,6 @@ export default function X5050ProductPage() {
   // Related products
   const relatedProducts = [
     {
-      id: "x5100",
-      name: "SenseLive X5100",
-      description: "Multi-Protocol Industrial Gateway",
-      specs: ["Modbus, BACnet, MQTT Support", "Web Configuration", "Multiple RS485 Ports", "Ethernet Connectivity"],
-      image: "/products/wireless/",
-      category: "gateways",
-    },
-    {
       id: "x7900",
       name: "SenseLive X7900",
       description: "LoRa Gateway with TCP Output",
@@ -118,6 +120,7 @@ export default function X5050ProductPage() {
   ]
 
   return (
+    
     <div className="flex flex-col">
       {/* Structured Data for SEO */}
       <ProductStructuredData
@@ -130,7 +133,7 @@ export default function X5050ProductPage() {
         url={`/products/${product.category}/${product.id}`}
       />
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
+<section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
         <div className="container px-4 md:px-6">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8 text-sm text-muted-foreground">
@@ -142,32 +145,32 @@ export default function X5050ProductPage() {
               Products
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/products/${product.category}`} className="hover:text-foreground">
-              Modbus Gateways
+            <Link href="/products/connectivity" className="hover:text-foreground">
+              Modbus Gateway
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">{product.name}</span>
+            <span className="text-foreground">SenseLive X5050</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          <div className="grid gap-8 lg:grid-cols-2">
             {/* Product Images */}
-            <div>
-              <ProductImageGallery
-                mainImage={mainImage}
-                galleryImages={galleryImages.slice(1)} // Remove the first image as it's the same as mainImage
-                productName={product.name}
-              />
-            </div>
+            <ProductImageGallery
+              mainImage={productImages.main}
+              galleryImages={productImages.gallery}
+              productName="SenseLive X7400D"
+            />
 
             {/* Product Info */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div>
-                <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
-                <p className="text-xl text-primary mt-2">{product.shortDescription}</p>
+                <h1 className="text-3xl font-bold">SenseLive X7400D</h1>
+                <p className="text-xl text-muted-foreground mt-2">RS485 to TCP/IP Modbus Server</p>
               </div>
 
-              <div className="prose max-w-none">
-                <p>{product.description}</p>
+              <div className="prose max-w-none text-muted-foreground">
+                <p>
+                The SenseLive X5050 is a high-performance industrial Modbus gateway that enables seamless communication between Modbus RTU devices and TCP/IP networks. With support for MQTT protocol, it's ideal for Industrial IoT applications requiring reliable data transmission.
+                </p>
               </div>
 
               <div>
@@ -181,7 +184,6 @@ export default function X5050ProductPage() {
                   ))}
                 </ul>
               </div>
-
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/inquiry">
                   <Button size="lg" className="w-full sm:w-auto">
@@ -199,6 +201,7 @@ export default function X5050ProductPage() {
         </div>
       </section>
 
+      
       {/* Detailed Features */}
       <section className="w-full py-12 md:py-24">
         <div className="container px-4 md:px-6">

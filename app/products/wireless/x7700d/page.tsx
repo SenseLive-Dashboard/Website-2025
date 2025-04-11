@@ -8,12 +8,32 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProductStructuredData } from "@/components/structured-data"
 import { ProductImageGallery } from "@/components/product-image-gallery"
+import { RelatedProducts } from "@/components/related-products"
 
 export const metadata: Metadata = {
   title: "SenseLive X7700 - DIN-Rail LoRa Device",
   description:
     "High-performance LoRa-based DIN-rail device designed for industrial environments requiring long-range, low-power wireless communication.",
 }
+
+const relatedProducts = [
+  {
+    id: "x7800",
+    name: "SenseLive X7800",
+    description: "Wall-Mounted LoRa Device with RS232 Features",
+    specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
+    image: "/products/connectivity/x9000/.png",
+    category: "wireless",
+  },
+  {
+    id: "x7900",
+    name: "SenseLive X7900",
+    description: "LoRa Gateway with TCP Output",
+    specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
+    image: "/products/connectivity/X7400/X7400.png",
+    category: "wireless",
+  },
+]
 
 export default function ProductPage() {
   return (
@@ -130,11 +150,11 @@ export default function ProductPage() {
             </div>
 
             <ProductImageGallery
-              mainImage="/placeholder.svg?height=500&width=500"
+              mainImage="/products/wireless/X7700D/X7700Dimg1.png"
               galleryImages={[
-                "/placeholder.svg?height=500&width=500&text=View+2",
-                "/placeholder.svg?height=500&width=500&text=View+3",
-                "/placeholder.svg?height=500&width=500&text=View+4",
+                "/products/wireless/X7700D/X7700Dimg1.png",
+                "/products/wireless/X7700D/X7700Dimg2.png",
+                "/products/wireless/X7700D/X7700Dimg2.png",
               ]}
               productName="SenseLive X7700"
             />
@@ -424,6 +444,12 @@ export default function ProductPage() {
           </div>
         </div>
       </section>
+
+      <section className="w-full py-12 md:py-24 bg-muted/30">
+              <div className="container px-4 md:px-6">
+                <RelatedProducts products={relatedProducts} title="Related Products" />
+              </div>
+            </section>
       <ProductStructuredData
         name="SenseLive X7700"
         description="High-performance LoRa-based DIN-rail device designed for industrial environments requiring long-range, low-power wireless communication."

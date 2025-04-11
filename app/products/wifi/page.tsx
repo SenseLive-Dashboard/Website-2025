@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageHeader } from "@/components/page-header"
 import { ProductCard } from "@/components/product-card"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
   title: "LoRa/ZigBee Devices | SenseLive",
@@ -13,6 +14,17 @@ export const metadata: Metadata = {
 }
 
 export default function WirelessProductsPage() {
+
+
+  const productCategories = [
+    { id: "gateways", name: "Modbus Gateways", slug: "gateways" },
+    { id: "controllers", name: "Remote IO Controllers", slug: "controllers" },
+    { id: "connectivity", name: "4G/5G Products", slug: "connectivity" },
+    { id: "wireless", name: "LoRa/ZigBee Devices", slug: "wireless" },
+    { id: "wifi", name: "WiFi Solutions", slug: "wifi" },
+    { id: "fiber", name: "Optical Fiber", slug: "fiber" },
+    { id: "wireless-bus-bar", name: "Wireless Bus Bar Solutions", slug: "wireless-bus-bar" },
+  ]
   // Product data
   const products = [
     {
@@ -50,6 +62,26 @@ export default function WirelessProductsPage() {
             title="WiFi Devices"
             description="Explore our range of WiFi devices designed for short-range wireless connectivity in industrial IoT applications."
           />
+          <div className="mt-8 mb-12">
+            <div className="flex flex-wrap gap-2">
+              <Link href="/products">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  All Products
+                </Badge>
+                
+              </Link>
+              {productCategories.map((category) => (
+                <Link key={category.id} href={`/products/${category.slug}`}>
+                  <Badge variant="outline" className="px-4 py-2 text-sm hover:bg-primary/10">
+                    {category.name}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
             {products.map((product) => (

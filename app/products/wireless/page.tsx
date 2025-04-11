@@ -28,8 +28,8 @@ export default function WirelessProductsPage() {
   // Product data
   const products = [
     {
-      id: "x7700",
-      name: "SenseLive X7700",
+      id: "x7700D",
+      name: "SenseLive X7700D",
       description: "DIN-Rail LoRa Device",
       specs: [
         "DIN-Rail Mounting",
@@ -37,12 +37,12 @@ export default function WirelessProductsPage() {
         "Long-Range LoRa Transmission",
         "Secure & Encrypted Communication",
       ],
-      image: "/placeholder.svg?height=300&width=300&text=X7700",
+      image: "/products/wireless/X7700D/X7700Dimg1.png",
       category: "wireless",
     },
     {
-      id: "x7800d",
-      name: "SenseLive X7800D",
+      id: "x7800",
+      name: "SenseLive X7800",
       description: "Wall-Mounted LoRa Device with RS232 Features",
       specs: [
         "Wall-Mounted & Compact Design",
@@ -50,7 +50,7 @@ export default function WirelessProductsPage() {
         "LoRaWAN & Private LoRa Protocol",
         "Low Power Consumption",
       ],
-      image: "/placeholder.svg?height=300&width=300&text=X7800D",
+      image: "/products/wireless/X7800/X7800.png",
       category: "wireless",
     },
     {
@@ -88,9 +88,18 @@ export default function WirelessProductsPage() {
             title="LoRa/ZigBee Devices"
             description="Explore our range of LoRa and ZigBee devices designed for long-range wireless connectivity in industrial IoT applications."
           />
-
+          
           <div className="mt-8 mb-12">
             <div className="flex flex-wrap gap-2">
+              <Link href="/products">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  All Products
+                </Badge>
+                
+              </Link>
               {productCategories.map((category) => (
                 <Link key={category.id} href={`/products/${category.slug}`}>
                   <Badge variant="outline" className="px-4 py-2 text-sm hover:bg-primary/10">

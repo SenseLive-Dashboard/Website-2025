@@ -36,7 +36,7 @@ export default function SolutionsPage() {
       name: "Digital Checksheet",
       description:
         "Paperless inspection and quality control solution that streamlines processes, ensures compliance, and improves operational efficiency.",
-      image: "/solutions/checksheet/checksheet1.png",
+      image: "/solutions/checklist1.png",
       badge: "Digital Transformation",
     },
     {

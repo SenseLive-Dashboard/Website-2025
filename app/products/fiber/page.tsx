@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageHeader } from "@/components/page-header"
 import { ProductCard } from "@/components/product-card"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
   title: "LoRa/ZigBee Devices | SenseLive",
@@ -16,20 +17,29 @@ export default function WirelessProductsPage() {
   // Product data
   const products = [
     {
-      id: "x7050",
-      name: "SenseLive X7050",
-      description: "Industrial WiFi AP",
+      id: "x8555",
+      name: "SenseLive X8555",
+      description: "Fiber Optic Converter",
       specs: [
-        "Dual Band",
-        "IP65 Rated",
-        "PoE Powered",
-        "Enterprise Security",
+        "Single mode",
+        "Dual Fiber",
+        "Industrial Grade",
+        "Wide Temperature Range",
       ],
-      image: "/products/wifi/x7050/x7050.png",
+      image: "/products/fiber/X8555/x8555img1.png",
       category: "wireless",
     },
-  ]
 
+  ]
+  const productCategories = [
+    { id: "gateways", name: "Modbus Gateways", slug: "gateways" },
+    { id: "controllers", name: "Remote IO Controllers", slug: "controllers" },
+    { id: "connectivity", name: "4G/5G Products", slug: "connectivity" },
+    { id: "wireless", name: "LoRa/ZigBee Devices", slug: "wireless" },
+    { id: "wifi", name: "WiFi Solutions", slug: "wifi" },
+    { id: "fiber", name: "Optical Fiber", slug: "fiber" },
+    { id: "wireless-bus-bar", name: "Wireless Bus Bar Solutions", slug: "wireless-bus-bar" },
+  ]
   return (
     <div className="flex flex-col">
       <section className="w-full py-8  lg: bg-muted/30">
@@ -43,13 +53,33 @@ export default function WirelessProductsPage() {
               Products
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">WiFi Devices</span>
+            <span className="text-foreground">Optical Fiber</span>
           </div>
 
           <PageHeader
-            title="WiFi Devices"
-            description="Explore our range of WiFi devices designed for short-range wireless connectivity in industrial IoT applications."
+            title="Fiber Optic Devices"
+            description="Explore our range of Fiber Optic devices designed for long-range wired connectivity in industrial IoT applications."
           />
+          <div className="mt-8 mb-12">
+            <div className="flex flex-wrap gap-2">
+              <Link href="/products">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  All Products
+                </Badge>
+                
+              </Link>
+              {productCategories.map((category) => (
+                <Link key={category.id} href={`/products/${category.slug}`}>
+                  <Badge variant="outline" className="px-4 py-2 text-sm hover:bg-primary/10">
+                    {category.name}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
             {products.map((product) => (

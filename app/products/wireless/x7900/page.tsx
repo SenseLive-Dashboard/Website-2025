@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "The X7900 is a professional LoRa Gateway that converts LoRa wireless signals to TCP/IP, supporting both LoRaWAN and private LoRa protocols with multiple network interfaces.",
 }
 
+
+
 export default function X7900ProductPage() {
   // Product data
   const product = {
@@ -156,27 +158,19 @@ export default function X7900ProductPage() {
   // Related products
   const relatedProducts = [
     {
-      id: "x7700",
-      name: "X7700",
-      description: "DIN-Rail LoRa Device",
-      specs: ["DIN-Rail Mounting", "RS485 Support", "Long-Range Transmission"],
-      image: "/placeholder.svg?height=300&width=300&text=X7700",
-      category: "wireless",
-    },
-    {
-      id: "x7800d",
-      name: "X7800D",
-      description: "Wall-Mounted LoRa Device",
-      specs: ["Wall-Mounted Design", "Dual RS232 & RS485", "Low Power Consumption"],
-      image: "/placeholder.svg?height=300&width=300&text=X7800D",
-      category: "wireless",
-    },
-    {
-      id: "x9000",
-      name: "X9000",
-      description: "4G IoT Gateway with Edge Intelligence",
-      specs: ["4G CAT1 Connectivity", "Digital & Analog Inputs", "Edge Computing"],
+      id: "x7800",
+      name: "SenseLive X7800",
+      description: "Wall-Mounted LoRa Device with RS232 Features",
+      specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
       image: "/products/connectivity/x9000/thumbnail.png",
+      category: "connectivity",
+    },
+    {
+      id: "x7900",
+      name: "SenseLive X7900",
+      description: "LoRa Gateway with TCP Output",
+      specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
+      image: "/products/connectivity/X7400/X7400.png",
       category: "connectivity",
     },
   ]
@@ -482,6 +476,26 @@ export default function X7900ProductPage() {
                 </Card>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-24">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center text-center space-y-4">
+            <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Need More Information?</h2>
+            <p className="text-muted-foreground max-w-[600px]">
+              Contact our team of experts to learn more about the SenseLive X7800 and how it can benefit your
+              application.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
+              <Link href="/inquiry">
+                <Button>Request a Quote</Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline">Contact Sales</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -5,11 +5,22 @@ import { ChevronRight, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageHeader } from "@/components/page-header"
 import { ProductCard } from "@/components/product-card"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
   title: "Remote IO Controllers",
   description: "Explore SenseLive's range of Remote IO Controllers for industrial automation and smart infrastructure.",
 }
+
+const productCategories = [
+  { id: "gateways", name: "Modbus Gateways", slug: "gateways" },
+  { id: "controllers", name: "Remote IO Controllers", slug: "controllers" },
+  { id: "connectivity", name: "4G/5G Products", slug: "connectivity" },
+  { id: "wireless", name: "LoRa/ZigBee Devices", slug: "wireless" },
+  { id: "wifi", name: "WiFi Solutions", slug: "wifi" },
+  { id: "fiber", name: "Optical Fiber", slug: "fiber" },
+  { id: "wireless-bus-bar", name: "Wireless Bus Bar Solutions", slug: "wireless-bus-bar" },
+]
 
 export default function ControllersPage() {
   // Product categories
@@ -36,18 +47,12 @@ export default function ControllersPage() {
       specs: ["4 Digital Inputs", "2 Analog Inputs", "4 Relay Outputs", "Modbus TCP/RTU Support"],
       image: "/products/controllers/e7000/thumbnail.png",
     },
-    {
-      id: "e6002",
-      name: "SenseLive E6002",
-      description: "Advanced Programmable Logic Controller",
-      specs: ["16 Digital Inputs", "8 Analog Inputs", "12 Relay Outputs", "Ethernet & RS485"],
-      image: "/placeholder.svg?height=300&width=300",
-    },
+    
   ]
 
   return (
     <div className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
+      <section className="w-full py-8 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex items-center gap-2 mb-8 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground">
@@ -65,6 +70,26 @@ export default function ControllersPage() {
             title={category.name}
             description={`Explore our range of ${category.name.toLowerCase()} designed for industrial IoT applications with reliability and performance in mind.`}
           />
+          <div className="mt-8 mb-12">
+            <div className="flex flex-wrap gap-2">
+              <Link href="/products">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  All Products
+                </Badge>
+                
+              </Link>
+              {productCategories.map((category) => (
+                <Link key={category.id} href={`/products/${category.slug}`}>
+                  <Badge variant="outline" className="px-4 py-2 text-sm hover:bg-primary/10">
+                    {category.name}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
             {products.map((product) => (

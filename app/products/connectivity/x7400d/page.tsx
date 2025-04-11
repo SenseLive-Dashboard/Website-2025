@@ -519,6 +519,28 @@ export default function X7400DProductPage() {
           <RelatedProducts products={relatedProducts} title="Related Products" />
         </div>
       </section>
+
+      <section className="w-full py-12 md:py-24 bg-muted/30">
+          <div className="container px-4 md:px-6 text-center">
+            <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Need a Custom Solution?</h2>
+            <p className="text-muted-foreground md:text-lg max-w-[800px] mx-auto mb-8">
+              Contact our sales team to discuss your specific requirements and how SenseLive X9000 can help you
+              implement a tailored IoT solution for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/inquiry">
+                <Button size="lg" className="font-medium">
+                  Request a Quote
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button size="lg" variant="outline" className="font-medium">
+                  Contact Sales
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
     </div>
   )
 }

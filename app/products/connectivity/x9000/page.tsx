@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProductStructuredData } from "@/components/structured-data"
 import { ProductImageGallery } from "@/components/product-image-gallery"
+import { ProductCard } from "@/components/product-card"
 
 // Define the images for the X9000 product
 const mainImage = "/products/connectivity/x9000/main.png"
@@ -227,28 +228,20 @@ export default function X9000Page() {
   // Related products
   const relatedProducts = [
     {
-      id: "x7400d",
-      name: "X7400D",
-      description: "Industrial 4G Router with Dual SIM",
-      specs: ["Dual SIM", "VPN Support", "Advanced Firewall", "Industrial Design"],
-      image: "/placeholder.svg?height=300&width=300",
-      category: "connectivity",
+      id: "e7000",
+      name: "SenseLive E7000",
+      description: "Ethernet-based Remote IO Controller",
+      specs: ["4 Digital Inputs", "2 Analog Inputs", "4 Relay Outputs", "Modbus TCP/RTU Support"],
+      image: "/products/controllers/e7000/thumbnail.png",
+      category: "controllers",
     },
     {
-      id: "x7400",
-      name: "X7400",
-      description: "Compact 4G Router",
-      specs: ["LTE Cat 4", "WiFi Hotspot", "Compact Design", "Easy Setup"],
-      image: "/placeholder.svg?height=300&width=300",
+      id: "x9000",
+      name: "SenseLive X9000",
+      description: "4G IoT Gateway with Edge Intelligence",
+      specs: ["4G CAT1 Connectivity", "Digital & Analog Inputs", "Dual RS485 Ports", "Edge Computing Features"],
+      image: "/products/connectivity/x9000/thumbnail.png",
       category: "connectivity",
-    },
-    {
-      id: "x5050",
-      name: "X5050",
-      description: "RS485 to TCP/IP Modbus Server",
-      specs: ["MQTT Support", "Web Configuration", "Multiple Hosts", "Industrial Grade"],
-      image: "/products/gateways/x5050/main.png",
-      category: "gateways",
     },
   ]
 
@@ -756,6 +749,31 @@ export default function X9000Page() {
           </div>
         </section>
 
+        <section className="w-full py-12 md:py-24 bg-muted/30">
+                <div className="container px-4 md:px-6">
+                  <div className="flex flex-col items-start space-y-4 mb-8">
+                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Related Products</h2>
+                    <p className="text-muted-foreground max-w-[800px]">
+                      Explore other products that work well with SenseLive E7500 or serve similar purposes.
+                    </p>
+                  </div>
+        
+                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {relatedProducts.map((product, index) => (
+                      <ProductCard
+                        key={index}
+                        id={product.id}
+                        name={product.name}
+                        description={product.description}
+                        specs={product.specs}
+                        image={product.image}
+                        category={product.category}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </section>
+        
         <section className="w-full py-12 md:py-24 bg-muted/30">
           <div className="container px-4 md:px-6 text-center">
             <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Need a Custom Solution?</h2>

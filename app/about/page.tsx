@@ -261,7 +261,7 @@ export default function AboutPage() {
                   year: "July 2021",
                   title: "Production Monitoring System",
                   description:
-                    "Launched a production monitoring system for the wire drawing industry with deployments in companies like Solasar and Nansal Wire, featuring our X7700 wireless sensor.",
+                    "Launched a production monitoring system for the wire drawing industry with deployments in companies like Salasar and Bansal Wire, featuring our X7700 wireless sensor.",
                   icon: Layers,
                   product: {
                     name: "X7700 Wireless Sensor",
@@ -270,7 +270,7 @@ export default function AboutPage() {
                 },
                 {
                   year: "October 2022",
-                  title: "SenseLive Pvt. Ltd.",
+                  title: "IDT Innovations Technologies Pvt. Ltd",
                   description:
                     "Officially registered SenseLive as a private limited organization, solidifying our corporate structure and introducing the advanced E7500 controller series.",
                   icon: Shield,
@@ -283,11 +283,11 @@ export default function AboutPage() {
                   year: "March 2023",
                   title: "Water Management System",
                   description:
-                    "Introduced a state-of-the-art water management system, trusted by prominent clients such as Elkem, Ceat Tyre, and several solar industries, powered by our X7800D wireless device.",
+                    "Introduced a state-of-the-art water management system, trusted by prominent clients such as Elkem, Ceat Tyre, and several solar industries, powered by our X7800 wireless device.",
                   icon: Clock,
                   product: {
-                    name: "X7800D Wireless Device",
-                    link: "/products/wireless/x7800d",
+                    name: "X7800 Wireless Device",
+                    link: "/products/wireless/x7800",
                   },
                 },
                 {
@@ -524,11 +524,7 @@ export default function AboutPage() {
               </Button>
             </Link>
             <Link href="/products">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-medium transition-all"
-              >
+            <Button size="lg" variant="secondary" className="font-medium transition-all hover:shadow-md">
                 Explore Our Products
               </Button>
             </Link>

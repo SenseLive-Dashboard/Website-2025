@@ -8,12 +8,32 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ProductStructuredData } from "@/components/structured-data"
 import { ProductImageGallery } from "@/components/product-image-gallery"
+import { RelatedProducts } from "@/components/related-products"
 
 export const metadata: Metadata = {
-  title: "SenseLive X7800D - Wall-Mounted LoRa Device with RS232 Features",
+  title: "SenseLive X7800 - Wall-Mounted LoRa Device with RS232 Features",
   description:
     "Wall-mounted LoRa device with built-in RS232 and RS485 ports, allowing integration into existing wired industrial networks.",
 }
+
+const relatedProducts = [
+  {
+    id: "x7800",
+    name: "SenseLive X7800",
+    description: "Wall-Mounted LoRa Device with RS232 Features",
+    specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
+    image: "/products/connectivity/x9000/thumbnail.png",
+    category: "connectivity",
+  },
+  {
+    id: "x7900",
+    name: "SenseLive X7900",
+    description: "LoRa Gateway with TCP Output",
+    specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
+    image: "/products/connectivity/X7400/X7400.png",
+    category: "connectivity",
+  },
+]
 
 export default function ProductPage() {
   return (
@@ -33,13 +53,13 @@ export default function ProductPage() {
               LoRa/ZigBee Devices
             </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground">SenseLive X7800D</span>
+            <span className="text-foreground">SenseLive X7800</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="flex flex-col space-y-6">
               <div>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SenseLive X7800D</h1>
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">SenseLive X7800</h1>
                 <p className="mt-4 text-xl text-muted-foreground">Wall-Mounted LoRa Device with RS232 Features</p>
               </div>
 
@@ -61,7 +81,7 @@ export default function ProductPage() {
               <div>
                 <h2 className="text-xl font-semibold mb-2">Short Description</h2>
                 <p className="text-muted-foreground">
-                  SenseLive X7800D is a wall-mounted LoRa device with built-in RS232 and RS485 ports, allowing
+                  SenseLive X7800 is a wall-mounted LoRa device with built-in RS232 and RS485 ports, allowing
                   integration into existing wired industrial networks. It is ideal for smart metering, remote asset
                   management, and real-time industrial communication.
                 </p>
@@ -114,13 +134,13 @@ export default function ProductPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="https://www.senselive.io/downloads/documents/X7800D-datasheet.pdf">
+                <Link href="https://www.senselive.io/downloads/documents/X7800-datasheet.pdf">
                   <Button className="w-full sm:w-auto gap-2">
                     <FileText className="h-4 w-4" />
                     Download Datasheet
                   </Button>
                 </Link>
-                <Link href="https://www.senselive.io/downloads/documents/X7800D-manual.pdf">
+                <Link href="https://www.senselive.io/downloads/documents/X7800-manual.pdf">
                   <Button variant="outline" className="w-full sm:w-auto gap-2">
                     <Download className="h-4 w-4" />
                     User Manual
@@ -130,13 +150,13 @@ export default function ProductPage() {
             </div>
 
             <ProductImageGallery
-              mainImage="/placeholder.svg?height=500&width=500"
+              mainImage="/products/wireless/X7800/X7800.png"
               galleryImages={[
-                "/placeholder.svg?height=500&width=500&text=View+2",
-                "/placeholder.svg?height=500&width=500&text=View+3",
-                "/placeholder.svg?height=500&width=500&text=View+4",
+                "/products/wireless/X7800/X7800img2.png",
+                "/products/wireless/X7800/X7800img3.png",
+                "/products/wireless/X7800/X7800img4.png",
               ]}
-              productName="SenseLive X7800D"
+              productName="SenseLive X7800"
             />
           </div>
         </div>
@@ -302,7 +322,7 @@ export default function ProductPage() {
                       <p className="text-muted-foreground mb-4">
                         Complete technical specifications and product details
                       </p>
-                      <Link href="https://www.senselive.io/downloads/documents/X7800D-datasheet.pdf">
+                      <Link href="https://www.senselive.io/downloads/documents/X7800-datasheet.pdf">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download PDF
@@ -317,7 +337,7 @@ export default function ProductPage() {
                     <div>
                       <h3 className="text-lg font-semibold mb-1">User Manual</h3>
                       <p className="text-muted-foreground mb-4">Installation, configuration, and operation guide</p>
-                      <Link href="https://www.senselive.io/downloads/documents/X7800D-manual.pdf">
+                      <Link href="https://www.senselive.io/downloads/documents/X7800-manual.pdf">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download PDF
@@ -332,7 +352,7 @@ export default function ProductPage() {
                     <div>
                       <h3 className="text-lg font-semibold mb-1">Configuration Tool</h3>
                       <p className="text-muted-foreground mb-4">Software for device configuration and management</p>
-                      <Link href="https://www.senselive.io/downloads/software/X7800D-config-tool.zip">
+                      <Link href="https://www.senselive.io/downloads/software/X7800-config-tool.zip">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download ZIP
@@ -349,7 +369,7 @@ export default function ProductPage() {
                       <p className="text-muted-foreground mb-4">
                         Latest firmware version with bug fixes and improvements
                       </p>
-                      <Link href="https://www.senselive.io/downloads/firmware/X7800D-firmware-v1.2.bin">
+                      <Link href="https://www.senselive.io/downloads/firmware/X7800-firmware-v1.2.bin">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download Firmware
@@ -364,12 +384,18 @@ export default function ProductPage() {
         </div>
       </section>
 
+      <section className="w-full py-12 md:py-24 bg-muted/30">
+              <div className="container px-4 md:px-6">
+                <RelatedProducts products={relatedProducts} title="Related Products" />
+              </div>
+            </section>
+
       <section className="w-full py-12 md:py-24">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center text-center space-y-4">
             <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Need More Information?</h2>
             <p className="text-muted-foreground max-w-[600px]">
-              Contact our team of experts to learn more about the SenseLive X7800D and how it can benefit your
+              Contact our team of experts to learn more about the SenseLive X7800 and how it can benefit your
               application.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-4">
@@ -384,13 +410,13 @@ export default function ProductPage() {
         </div>
       </section>
       <ProductStructuredData
-        name="SenseLive X7800D"
+        name="SenseLive X7800"
         description="Wall-mounted LoRa device with built-in RS232 and RS485 ports, allowing integration into existing wired industrial networks."
         image="/placeholder.svg?height=400&width=400"
-        sku="X7800D"
+        sku="X7800"
         brand="SenseLive"
         category="LoRa/ZigBee Devices"
-        url="https://www.senselive.io/products/wireless/x7800d"
+        url="https://www.senselive.io/products/wireless/x7800"
       />
     </div>
   )

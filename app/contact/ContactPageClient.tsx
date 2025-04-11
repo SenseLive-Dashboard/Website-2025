@@ -31,7 +31,7 @@ export default function ContactPageClient() {
                     Call us for immediate assistance with sales or support inquiries.
                   </p>
                   <p className="font-medium mt-2">+91 9604070622 / +91 8408058531</p>
-                  <p className="text-sm text-muted-foreground">Monday - Friday: 8:00 AM - 6:00 PM IST</p>
+                  <p className="text-sm text-muted-foreground">Monday - Saturday: 9:30 AM - 10:30 PM IST</p>
                 </div>
               </div>
 
@@ -59,11 +59,11 @@ export default function ContactPageClient() {
                     Visit our headquarters for in-person meetings and demonstrations.
                   </p>
                   <p className="font-medium mt-2">
-                    268, BHAMTEE COLONEY
+                    G.H Raisoni Business Incubation Foundation CRPF Gate 3, Hingna Road,
                     <br />
                     NAGPUR, Maharashtra
                     <br />
-                    India - 440022
+                    India - 440012
                   </p>
                 </div>
               </div>

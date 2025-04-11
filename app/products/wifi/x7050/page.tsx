@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ProductStructuredData } from "@/components/structured-data"
 import { ProductCard } from "@/components/product-card"
 import { ProductImageGallery } from "@/components/product-image-gallery"
+import { RelatedProducts } from "@/components/related-products"
 
 
 
@@ -34,6 +35,26 @@ export const metadata: Metadata = {
     "SenseCT-222",
   ],
 }
+
+
+const relatedProducts = [
+  {
+    id: "x7800",
+    name: "SenseLive X7800",
+    description: "Wall-Mounted LoRa Device with RS232 Features",
+    specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
+    image: "/products/connectivity/x9000/thumbnail.png",
+    category: "connectivity",
+  },
+  {
+    id: "x7900",
+    name: "SenseLive X7900",
+    description: "LoRa Gateway with TCP Output",
+    specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
+    image: "/products/connectivity/X7400/X7400.png",
+    category: "connectivity",
+  },
+]
 
 export default function SenseCT222Page() {
   return (
@@ -651,51 +672,10 @@ export default function SenseCT222Page() {
         </section>
 
         <section className="w-full py-12 md:py-24 bg-muted/30">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-start space-y-4 mb-8">
-              <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Related Products</h2>
-              <p className="text-muted-foreground max-w-[800px]">
-                Explore other products that work well with SenseCT-222 or serve similar purposes.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  id: "edge8000",
-                  name: "SenseLive Edge8000",
-                  description: "Wireless Bus Bar / Surface Temperature Monitoring System",
-                  specs: [
-                    "Up to 60 wireless sensors",
-                    "Integrated Energy Meter",
-                    "RS485 Data Output",
-                    "Built-In Dual Relays",
-                  ],
-                  image: "/placeholder.svg?height=300&width=300",
-                  category: "wireless-bus-bar",
-                },
-                {
-                  id: "sensebt-222",
-                  name: "SenseBT-222",
-                  description: "Battery-Powered Wireless Temperature Sensor",
-                  specs: ["Long Battery Life", "Wide Range", "Industrial Design", "Wireless Communication"],
-                  image: "/placeholder.svg?height=300&width=300",
-                  category: "wireless-bus-bar",
-                },
-              ].map((product) => (
-                <ProductCard
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  description={product.description}
-                  specs={product.specs}
-                  image={product.image}
-                  category={product.category}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+              <div className="container px-4 md:px-6">
+                <RelatedProducts products={relatedProducts} title="Related Products" />
+              </div>
+            </section>
 
         <section className="w-full py-12 md:py-24 bg-background">
           <div className="container px-4 md:px-6 text-center">

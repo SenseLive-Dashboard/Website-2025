@@ -5,6 +5,7 @@ import { ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { PageHeader } from "@/components/page-header"
 import { ProductCard } from "@/components/product-card"
+import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
   title: "4G/5G Products - SenseLive",
@@ -13,6 +14,16 @@ export const metadata: Metadata = {
 
 export default function ConnectivityPage() {
   const categoryName = "4G/5G Products"
+
+  const productCategories = [
+    { id: "gateways", name: "Modbus Gateways", slug: "gateways" },
+    { id: "controllers", name: "Remote IO Controllers", slug: "controllers" },
+    { id: "connectivity", name: "4G/5G Products", slug: "connectivity" },
+    { id: "wireless", name: "LoRa/ZigBee Devices", slug: "wireless" },
+    { id: "wifi", name: "WiFi Solutions", slug: "wifi" },
+    { id: "fiber", name: "Optical Fiber", slug: "fiber" },
+    { id: "wireless-bus-bar", name: "Wireless Bus Bar Solutions", slug: "wireless-bus-bar" },
+  ]
 
   // Products in the 4G/5G Products category
   const products = [
@@ -28,7 +39,7 @@ export default function ConnectivityPage() {
       name: "SenseLive X7400D",
       description: "DIN-rail 4G CAT1 DTU with RS485 Interface",
       specs: ["4G CAT1 with 2G Fallback", "RS485 Interface", "MQTT & JSON Support", "Edge Computing Features"],
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/products/connectivity/X7400D/X7400Dimg1.png",
       category: "connectivity",
     },
     {
@@ -36,7 +47,7 @@ export default function ConnectivityPage() {
       name: "X7400",
       description: "Compact 4G Router",
       specs: ["LTE Cat 4", "WiFi Hotspot", "Compact Design", "Easy Setup"],
-      image: "/placeholder.svg?height=300&width=300",
+      image: "/products/connectivity/x7400/X7400.png",
     },
   ]
 
@@ -60,6 +71,26 @@ export default function ConnectivityPage() {
             title={categoryName}
             description={`Explore our range of ${categoryName.toLowerCase()} designed for industrial IoT applications with reliability and performance in mind.`}
           />
+          <div className="mt-8 mb-12">
+            <div className="flex flex-wrap gap-2">
+              <Link href="/products">
+                <Badge
+                  variant="outline"
+                  className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                  All Products
+                </Badge>
+                
+              </Link>
+              {productCategories.map((category) => (
+                <Link key={category.id} href={`/products/${category.slug}`}>
+                  <Badge variant="outline" className="px-4 py-2 text-sm hover:bg-primary/10">
+                    {category.name}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-12">
             {products.map((product) => (
