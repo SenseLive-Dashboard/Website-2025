@@ -130,7 +130,7 @@ const allProducts = [
       "LoRaWAN & Private LoRa Protocol",
       "Low Power Consumption",
     ],
-    image: `/products/wireless/X7800/X7800img1.png`,
+    image: `/products/wireless/X7800/main.png`,
     category: "wireless",
   },
   {
