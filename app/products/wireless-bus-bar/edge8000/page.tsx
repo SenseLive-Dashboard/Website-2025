@@ -41,7 +41,7 @@ const relatedProducts = [
     name: "SenseLive X5050",
     description: "RS485 to TCP/IP Modbus Server",
     specs: ["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"],
-    image: "/products/gateway/x5050/X5050.png",
+    image: `/products/gateway/x5050/X5050.png`,
     category: "gateways",
   },
 ]
