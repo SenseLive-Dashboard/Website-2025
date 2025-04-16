@@ -19,12 +19,12 @@ export const metadata: Metadata = {
 export default function X7400DProductPage() {
   // Product images
   const productImages = {
-    main: "/products/connectivity/x7400/x7400.png",
+    main: "/products/connectivity/x7400/x7400img1.png",
     gallery: [
-      "/products/connectivity/x7400/x7400.png",
-      "/products/connectivity/x7400/x7400.png",
-      "/products/connectivity/x7400/x7400.png",
-      "/products/connectivity/x7400/x7400.png",
+      "/products/connectivity/x7400/x7400img1.png",
+      "/products/connectivity/x7400/x7400img1.png",
+      "/products/connectivity/x7400/x7400img1.png",
+      "/products/connectivity/x7400/x7400img1.png",
     
     ],
   }
@@ -223,7 +223,7 @@ export default function X7400DProductPage() {
                   <div className="relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
                     <Image
-                      src="/products/connectivity/x7400/x7400.png"
+                      src="/products/connectivity/x7400/x7400img1.png"
                       alt="SenseLive X7400D in application"
                       width={600}
                       height={400}

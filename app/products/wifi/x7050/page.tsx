@@ -43,8 +43,8 @@ const relatedProducts = [
     name: "SenseLive X7800",
     description: "Wall-Mounted LoRa Device with RS232 Features",
     specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
-    image: "/products/wireless/X7800/x7800.png",
-    category: "connectivity",
+    image: "/products/wireless/X7800/X7800.png",
+    category: "wireless",
   },
   {
     id: "x7900",
@@ -52,7 +52,7 @@ const relatedProducts = [
     description: "LoRa Gateway with TCP Output",
     specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
     image: "/products/wireless/x7900/main.png",
-    category: "connectivity",
+    category: "wireless",
   },
 ]
 
