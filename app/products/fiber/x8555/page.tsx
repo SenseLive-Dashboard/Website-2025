@@ -143,7 +143,7 @@ export default function SenseCT222Page() {
                     </Button>
                   </Link>
                   <Link
-                    href="https://www.senselive.io/downloads/documents/sensect-222-datasheet.pdf"
+                    href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x8555.pdf"
                     className="flex-1"
                   >
                     <Button variant="outline" className="w-full gap-2">

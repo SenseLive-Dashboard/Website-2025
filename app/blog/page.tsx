@@ -104,7 +104,7 @@ export default async function BlogPage() {
                 <div className="bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
-                      src={post.featuredImage || "/placeholder.svg?height=600&width=800"}
+                      src={"/solutions/ems/ems1.png"}
                       alt={post.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

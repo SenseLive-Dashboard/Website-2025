@@ -153,7 +153,7 @@ export default function Edge8000Page() {
                       Request a Quote
                     </Button>
                   </Link>
-                  <Link href="https://www.senselive.io/downloads/documents/edge8000-datasheet.pdf" className="flex-1">
+                  <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_edge8000.pdf" className="flex-1">
                     <Button variant="outline" className="w-full gap-2">
                       <FileText className="h-4 w-4" />
                       Download Datasheet

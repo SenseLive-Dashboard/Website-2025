@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, FileText, ShoppingCart } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProductImageGallery } from "@/components/product-image-gallery"
@@ -157,6 +157,20 @@ export default function X7400DProductPage() {
                   </li>
 
                 </ul>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/inquiry" className="flex-1">
+                  <Button className="w-full gap-2">
+                    <ShoppingCart className="h-4 w-4" />
+                    Request a Quote
+                  </Button>
+                </Link>
+                <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x7400.pdf" className="flex-1">
+                  <Button variant="outline" className="w-full gap-2">
+                    <FileText className="h-4 w-4" />
+                    Download Datasheet
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -472,7 +486,7 @@ export default function X7400DProductPage() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Comprehensive technical specifications and features of the SenseLive X7400D.
                       </p>
-                      <Link href="/downloads/datasheets/x7400d.pdf">
+                      <Link href="/https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x7400.pdf">
                         <Button variant="outline" size="sm">
                           Download Datasheet
                         </Button>
@@ -504,7 +518,7 @@ export default function X7400DProductPage() {
                       <p className="text-sm text-muted-foreground mb-4">
                         Management software for configuring and monitoring SenseLive X7400D devices.
                       </p>
-                      <Link href="/downloads/software/senselive-vircom.zip">
+                      <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x7400.pdf">
                         <Button variant="outline" size="sm">
                           Download Software
                         </Button>

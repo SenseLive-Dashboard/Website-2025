@@ -36,7 +36,7 @@ export default function SolutionsPage() {
       name: "Digital Checksheet",
       description:
         "Paperless inspection and quality control solution that streamlines processes, ensures compliance, and improves operational efficiency.",
-      image: "/solutions/checklist1.png",
+      image: "/solutions/checklist/checklist1.png",
       badge: "Digital Transformation",
     },
     {
@@ -141,7 +141,7 @@ export default function SolutionsPage() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
               <Image
-                src="/solutions/wms/wms1.png"
+                src="/home/IIOT.png"
                 alt="SenseLive Solutions"
                 width={700}
                 height={500}

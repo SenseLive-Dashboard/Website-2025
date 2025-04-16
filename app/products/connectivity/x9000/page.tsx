@@ -193,7 +193,7 @@ export default function X9000Page() {
         version: "2.1",
         date: "2023-05-15",
         fileSize: "2.4 MB",
-        url: "/downloads/datasheets/x9000.pdf",
+        url: "https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x9000.pdf",
       },
       {
         title: "X9000 User Manual",
@@ -330,7 +330,7 @@ export default function X9000Page() {
                       Request a Quote
                     </Button>
                   </Link>
-                  <Link href="https://www.senselive.io/downloads/documents/x9000-datasheet.pdf" className="flex-1">
+                  <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x9000.pdf" className="flex-1">
                     <Button variant="outline" className="w-full gap-2">
                       <FileText className="h-4 w-4" />
                       Download Datasheet

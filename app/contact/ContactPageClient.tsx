@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PageHeader } from "@/components/page-header"
 import { Input } from "@/components/ui/input"
+import GoogleMap from "@/components/location"
+import MapComponent from "@/components/location"
 
 export default function ContactPageClient() {
   return (
@@ -69,7 +71,9 @@ export default function ContactPageClient() {
               </div>
 
               <div className="relative mt-8 h-[300px] rounded-lg overflow-hidden">
-                <Image src="/placeholder.svg?height=300&width=600" alt="Map location" fill className="object-cover" />
+                <div className="relative mt-8 h-[300px] rounded-lg overflow-hidden">
+                <MapComponent />
+              </div>
               </div>
             </div>
 

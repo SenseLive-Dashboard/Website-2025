@@ -15,7 +15,7 @@ export default function DigitalChecksheetPage() {
       <SolutionStructuredData
         name="Digital Checksheet Solution"
         description="Streamline inspections and quality control with SenseLive's Digital Checksheet solution. Improve efficiency, ensure compliance, and reduce paper waste."
-        image="/solutions/checklist1.png"
+        image="/solutions/checklist/checklist1.png"
         provider="SenseLive"
         url="https://senselive.com/solutions/digital-checksheet"
       />
@@ -23,7 +23,7 @@ export default function DigitalChecksheetPage() {
         title="Digital Checksheet Solution"
         description="Streamline inspections and quality control with SenseLive's Digital Checksheet solution. Improve efficiency, ensure compliance, and reduce paper waste."
         badge="Digital Transformation"
-        heroImage="/solutions/checklist1.png"
+        heroImage="/solutions/checklist/checklist1.png"
         features={[
           {
             icon: <ListChecks className="h-6 w-6 text-primary" />,
@@ -41,7 +41,7 @@ export default function DigitalChecksheetPage() {
             description: "Manage user access and permissions to ensure data security and compliance.",
           },
         ]}
-        architectureImage="/solutions/checklist1.png"
+        architectureImage="/solutions/checklist/checklist1.png"
         architectureSteps={[
           {
             title: "Checklist Creation",
@@ -73,7 +73,7 @@ export default function DigitalChecksheetPage() {
               "Improve data accuracy and consistency",
               "Streamline audit processes",
             ],
-            image: "/solutions/checklist1.png",
+            image: "/solutions/checklist/checklist1.png",
           },
           {
             id: "compliance",

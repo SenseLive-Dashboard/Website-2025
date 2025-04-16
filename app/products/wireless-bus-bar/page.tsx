@@ -101,7 +101,7 @@ export default function WirelessBusBarPage() {
           
 
           {/* Featured Product */}
-          <div className="mt-12 mb-16">
+          {/* <div className="mt-12 mb-16">
             <Card className="overflow-hidden border-muted hover:border-primary/50 transition-all">
               <div className="grid md:grid-cols-2 gap-6 p-6">
                 <div className="flex items-center justify-center bg-muted/50 rounded-lg p-8">
@@ -153,7 +153,7 @@ export default function WirelessBusBarPage() {
                 </div>
               </div>
             </Card>
-          </div>
+          </div> */}
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

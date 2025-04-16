@@ -40,7 +40,7 @@ export default function X7900ProductPage() {
       "Industrial-grade design for harsh environments",
       "Wide operating temperature range: -40°C to 85°C",
     ],
-    datasheetUrl: "/downloads/datasheets/x7900.pdf",
+    datasheetUrl: "https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x7900.pdf",
     overview: [
       "The X7900 is a professional LoRa Gateway that converts LoRa wireless signals to TCP/IP, enabling seamless integration with existing network infrastructure. It supports both LoRaWAN and private LoRa protocols, making it versatile for various IoT applications.",
       "With multiple network interfaces including Ethernet and serial ports (RS232/485/422), the X7900 can connect to a wide range of devices and systems. The built-in web-based management console provides easy configuration and monitoring capabilities.",

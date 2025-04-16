@@ -139,7 +139,7 @@ export default function E7500Page() {
       version: "2.1",
       released: "2023-05-15",
       size: "2.4 MB",
-      url: "/downloads/documents/E7500-datasheet.pdf",
+      url: "https://senselive.in/downloads/documents/datasheets/datasheet_senselive_e7500.pdf",
     },
     {
       title: "SenseLive E7500 User Manual",

@@ -107,7 +107,7 @@ export default function E7000Page() {
                     Request a Quote
                   </Button>
                 </Link>
-                <Link href="/downloads/documents/E7000-datasheet.pdf" className="flex-1">
+                <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_e7000.pdf" className="flex-1">
                   <Button variant="outline" className="w-full gap-2">
                     <FileText className="h-4 w-4" />
                     Download Datasheet
@@ -477,7 +477,7 @@ export default function E7000Page() {
                       </div>
                     </CardContent>
                     <CardContent className="p-4 pt-0">
-                      <Link href="/downloads/documents/E7000-datasheet.pdf">
+                      <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_e7000.pdf">
                         <Button variant="outline" size="sm" className="gap-2">
                           <Download className="h-4 w-4" />
                           Download

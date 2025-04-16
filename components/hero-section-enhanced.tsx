@@ -41,7 +41,7 @@ export function HeroSectionEnhanced() {
       title: "SenseLive Edge8000",
       description:
         "Next-generation wireless bus bar and surface temperature monitoring system with integrated energy metering and dual relays.",
-      image: "/products/wireless-bus-bar/edge8000/complete.png",
+      image: "/products/wireless-bus-bar/edge8000/front-right.png",
       badge: "Premium Product",
       link: "/products/wireless-bus-bar/edge8000",
     },

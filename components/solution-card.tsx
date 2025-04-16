@@ -26,11 +26,6 @@ export function SolutionCard({ id, name, description, image, badge }: SolutionCa
         />
       </div>
       <CardHeader className="p-4 pb-0">
-        {badge && (
-          <Badge className="w-fit px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md font-medium mb-2">
-            {badge}
-          </Badge>
-        )}
         <CardTitle className="line-clamp-1 text-xl">{name}</CardTitle>
         <CardDescription className="line-clamp-2 text-muted-foreground">{description}</CardDescription>
       </CardHeader>

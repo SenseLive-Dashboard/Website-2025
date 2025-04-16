@@ -134,7 +134,7 @@ export default function ProductPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="https://www.senselive.io/downloads/documents/X7700D-datasheet.pdf">
+                <Link href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_x7700d.pdf">
                   <Button className="w-full sm:w-auto gap-2">
                     <FileText className="h-4 w-4" />
                     Download Datasheet

@@ -126,7 +126,7 @@ export default function SenseBT222Page() {
                     </Button>
                   </Link>
                   <Link
-                    href="https://www.senselive.io/downloads/documents/sensebt-222-datasheet.pdf"
+                    href="https://senselive.in/downloads/documents/datasheets/datasheet_senselive_sensebt222.pdf"
                     className="flex-1"
                   >
                     <Button variant="outline" className="w-full gap-2">

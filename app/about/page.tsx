@@ -48,41 +48,41 @@ export default function AboutPage() {
 
       {/* Our Story */}
       <section id="our-story" className="w-full py-12 md:py-24 lg:py-32 scroll-mt-16 animate-fade-in">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="order-2 lg:order-1 animate-fade-up">
-              <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
-                <Image
-                  src="/about/about2.png"
-                  alt="SenseLive History"
-                  width={500}
-                  height={500}
-                  className="relative rounded-lg object-cover shadow-xl mx-auto"
-                />
-              </div>
-            </div>
-            <div className="space-y-4 order-1 lg:order-2 animate-fade-up delay-200">
-              <h2 className="text-3xl font-bold tracking-tighter">Our Story</h2>
-              <p className="text-muted-foreground">
-                SenseLive was founded in April 2019 with a dedicated mission to develop innovative IoT solutions for
-                cold chain monitoring. What began as a small team with a big vision has rapidly evolved into a
-                pioneering force in the industrial IoT landscape.
-              </p>
-              <p className="text-muted-foreground">
-                From our humble beginnings, we quickly identified critical gaps in industrial monitoring and control
-                systems. This insight led us to expand our focus beyond cold chain monitoring to comprehensive
-                industrial IoT solutions that address real-world challenges across multiple sectors.
-              </p>
-              <p className="text-muted-foreground">
-                Our journey has been marked by continuous innovation, strategic partnerships, and groundbreaking
-                achievements—including our collaboration with ISRO to launch IoT technology into space. Today, SenseLive
-                solutions are trusted by industry leaders across manufacturing, energy, water management, and more.
-              </p>
-            </div>
-          </div>
+  <div className="container px-4 md:px-6">
+    <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+      <div className="order-2 lg:order-1 animate-fade-up">
+        <div className="relative">
+          {/* Removed the shadow div that was here */}
+          <Image
+            src="/about/about2.png"
+            alt="SenseLive History"
+            width={500}
+            height={500}
+            className="rounded-lg object-cover mx-auto" /* Removed shadow-xl class */
+          />
         </div>
-      </section>
+      </div>
+      <div className="space-y-4 order-1 lg:order-2 animate-fade-up delay-200">
+        <h2 className="text-3xl font-bold tracking-tighter">Our Story</h2>
+        <p className="text-muted-foreground">
+          SenseLive was founded in April 2019 with a dedicated mission to develop innovative IoT solutions for
+          cold chain monitoring. What began as a small team with a big vision has rapidly evolved into a
+          pioneering force in the industrial IoT landscape.
+        </p>
+        <p className="text-muted-foreground">
+          From our humble beginnings, we quickly identified critical gaps in industrial monitoring and control
+          systems. This insight led us to expand our focus beyond cold chain monitoring to comprehensive
+          industrial IoT solutions that address real-world challenges across multiple sectors.
+        </p>
+        <p className="text-muted-foreground">
+          Our journey has been marked by continuous innovation, strategic partnerships, and groundbreaking
+          achievements—including our collaboration with ISRO to launch IoT technology into space. Today, SenseLive
+          solutions are trusted by industry leaders across manufacturing, energy, water management, and more.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Mission & Values */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50 animate-fade-in">
@@ -461,7 +461,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/about/about6.png"
                   alt="R&D Facility"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -476,7 +476,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-100">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/about/about7.png"
                   alt="Production Line"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -491,7 +491,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-200">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="/about/about8.png"
                   alt="Testing Laboratory"
                   fill
                   className="object-cover transition-transform hover:scale-105"
