@@ -569,43 +569,42 @@ export default function Edge8000Page() {
         </section>
 
         <section className="w-full py-12 md:py-24 bg-muted/30">
-                <div className="container px-4 md:px-6">
-                  <div className="flex flex-col items-start space-y-4 mb-8">
-                    <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Related Products</h2>
-                    <p className="text-muted-foreground max-w-[800px]">
-                      Explore other products that work well with SenseLive E7000 or serve similar purposes.
-                    </p>
-                  </div>
-        
-                  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    <ProductCard
-                      id="e7500"
-                      name="SenseLive E7500"
-                      description="RS485-based Remote IO Controller"
-                      specs={["4 Digital Inputs", "2 Analog Inputs", "4 Relay Outputs", "Modbus RTU Support"]}
-                      image="/products/controllers/e7500/thumbnail.png"
-                      category="controllers"
-                    />
-                    <ProductCard
-                      id="x5050"
-                      name="SenseLive X5050"
-                      description="RS485 to TCP/IP Modbus Server"
-                      specs={["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"]}
-                      image="/products/gateway/X5050/X5050.png"
-                      category="gateways"
-                    />
-                    <ProductCard
-                      id="x9000"
-                      name="SenseLive X9000"
-                      description="4G IoT Gateway with Edge Intelligence"
-                      specs={["4G CAT1 Connectivity", "Digital & Analog Inputs", "Dual RS485 Ports", "Edge Computing Features"]}
-                      image="/products/connectivity/x9000/thumbnail.png"
-                      category="connectivity"
-                    />
-                  </div>
-                </div>
-              </section>
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-start space-y-4 mb-8">
+            <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Related Products</h2>
+            <p className="text-muted-foreground max-w-[800px]">
+              Explore other products that work well with SenseLive E7000 or serve similar purposes.
+            </p>
+          </div>
 
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <ProductCard
+              id="sensebt-222"
+              name="SenseLive SenseBT222"
+              description="Battery-Powered Wireless Temperature Sensor"
+              specs={["Long Battery Life", "Wide Range", "Industrial Design", "Wireless Communication"]}
+              image="/products/wireless-bus-bar/SenseBT222/SenseBT222img1.png"
+              category="wireless-bus-bar"
+            />
+            <ProductCard
+              id="sensect-222"
+              name="SenseLive SenseCT222"
+              description="CT-Powered Wireless Temperature Sensor"
+              specs={["Self Powered", "Real Time Monitoring", "Easy Installation", "Maintainance-Fee"]}
+              image="/products/wireless-bus-bar/SenseCT222/SenseCT222img1.png"
+              category="wireless-bus-bar"
+            />
+            <ProductCard
+              id="edge8000"
+              name="SenseLive Edge8000"
+              description="Wireless Bus Bar / Surface Temperature Monitoring System"
+              specs={["Up to 60 wireless sensors", "Integrated Energy Meter", "RS485 Data Output", "Built-in Dual Relays"]}
+              image="/products/wireless-bus-bar/edge8000/thumbnail.png"
+              category="wireless-bus-bar"
+            />
+          </div>
+        </div>
+      </section>
         <section className="w-full py-12 md:py-24 bg-muted/30">
           <div className="container px-4 md:px-6 text-center">
             <h2 className="text-2xl font-bold tracking-tighter md:text-3xl mb-4">Need a Custom Solution?</h2>
