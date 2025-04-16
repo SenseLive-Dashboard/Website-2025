@@ -11,7 +11,7 @@ import { ProductStructuredData } from "@/components/structured-data"
 import { ProductCard } from "@/components/product-card"
 import { ProductImageGallery } from "@/components/product-image-gallery"
 
-const mainImage = "/products/wireless-bus-bar/SenseBT222/senseBT222img2.png"
+const mainImage = "/products/wireless-bus-bar/SenseBT222/SenseBT222img2.png"
 const galleryImages = [
   "/products/wireless-bus-bar/SenseBT222/SenseBT222img1.png",
   "/products/wireless-bus-bar/SenseBT222/SenseBT222img1.png",

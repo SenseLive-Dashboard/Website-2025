@@ -13,12 +13,12 @@ import { ProductImageGallery } from "@/components/product-image-gallery"
 
 
 
-const mainImage = "/products/fiber/x8555/x8555img1.png"
+const mainImage = "/products/fiber/X8555/x8555img1.png"
 const galleryImages = [
-  "/products/fiber/x8555/x8555img1.png",
-  "/products/fiber/x8555/x8555img2.png",
-  "/products/fiber/x8555/x8555img3.png",
-  "/products/fiber/x8555/x8555img1.png"
+  "/products/fiber/X8555/x8555img1.png",
+  "/products/fiber/X8555/x8555img2.png",
+  "/products/fiber/X8555/x8555img3.png",
+  "/products/fiber/X8555/x8555img1.png"
 ]
 export const metadata: Metadata = {
   title: "Fiber Optic Converter",

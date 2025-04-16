@@ -45,7 +45,7 @@ export default function X7400DProductPage() {
       name: "SenseLive X7400",
       description: "Compact 4G Router",
       specs: ["LTE Cat 4", "WiFi Hotspot", "Compact Design", "Easy Setup"],
-      image: "/products/connectivity/X7400/X7400.png",
+      image: "/products/connectivity/x7400/x7400.png",
       category: "connectivity",
     },
     {
@@ -53,7 +53,7 @@ export default function X7400DProductPage() {
       name: "SenseLive X5050",
       description: "RS485 to TCP/IP Modbus Server",
       specs: ["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"],
-      image: "/products/gateway/x5050/x5050.png",
+      image: "/products/gateway/x5050/X5050.png",
       category: "gateways",
     },
   ]

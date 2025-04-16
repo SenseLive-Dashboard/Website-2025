@@ -170,7 +170,7 @@ export default function X7900ProductPage() {
       name: "SenseLive X7900",
       description: "LoRa Gateway with TCP Output",
       specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
-      image: "/products/connectivity/X7400/X7400.png",
+      image: "/products/wireless/x7900/main.png",
       category: "connectivity",
     },
   ]

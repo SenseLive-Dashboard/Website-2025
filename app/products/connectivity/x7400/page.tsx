@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 export default function X7400DProductPage() {
   // Product images
   const productImages = {
-    main: "/products/connectivity/X7400/X7400.png",
+    main: "/products/connectivity/x7400/x7400.png",
     gallery: [
-      "/products/connectivity/X7400/X7400.png",
+      "/products/connectivity/x7400/x7400.png",
       "/products/connectivity/x7400/x7400.png",
       "/products/connectivity/x7400/x7400.png",
       "/products/connectivity/x7400/x7400.png",
@@ -52,7 +52,7 @@ export default function X7400DProductPage() {
       name: "SenseLive X5050",
       description: "RS485 to TCP/IP Modbus Server",
       specs: ["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"],
-      image: "/products/gateway/x5050/x5050.png",
+      image: "/products/gateway/x5050/X5050.png",
       category: "gateways",
     },
   ]
@@ -223,7 +223,7 @@ export default function X7400DProductPage() {
                   <div className="relative">
                     <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
                     <Image
-                      src="/products/connectivity/X7400/X7400.png"
+                      src="/products/connectivity/x7400/x7400.png"
                       alt="SenseLive X7400D in application"
                       width={600}
                       height={400}

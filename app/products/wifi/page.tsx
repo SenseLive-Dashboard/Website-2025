@@ -37,7 +37,7 @@ export default function WirelessProductsPage() {
         "PoE Powered",
         "Enterprise Security",
       ],
-      image: "/products/wifi/x7050/x7050.png",
+      image: "/products/wifi/x7050/X7050.png",
       category: "wireless",
     },
   ]

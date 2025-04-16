@@ -14,12 +14,12 @@ import { RelatedProducts } from "@/components/related-products"
 
 
 
-const mainImage = "/products/wifi/X7050/X7050.png"
+const mainImage = "/products/wifi/x7050/X7050.png"
 const galleryImages = [
-  "/products/wifi/X7050/X7050.png",
-  "/products/wifi/X7050/X7050.png",
-  "/products/wifi/X7050/X7050.png",
-  "/products/wifi/X7050/X7050.png"
+  "/products/wifi/x7050/X7050.png",
+  "/products/wifi/x7050/X7050img2.png",
+  "/products/wifi/x7050/X7050img2.png",
+  "/products/wifi/x7050/X7050img2.png"
 ]
 export const metadata: Metadata = {
   title: "Industrial WiFi AP",
@@ -43,7 +43,7 @@ const relatedProducts = [
     name: "SenseLive X7800",
     description: "Wall-Mounted LoRa Device with RS232 Features",
     specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
-    image: "/products/connectivity/x9000/thumbnail.png",
+    image: "/products/wireless/X7800/x7800.png",
     category: "connectivity",
   },
   {
@@ -51,7 +51,7 @@ const relatedProducts = [
     name: "SenseLive X7900",
     description: "LoRa Gateway with TCP Output",
     specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
-    image: "/products/connectivity/X7400/X7400.png",
+    image: "/products/wireless/x7900/main.png",
     category: "connectivity",
   },
 ]
@@ -224,7 +224,7 @@ export default function SenseCT222Page() {
                     <h2 className="text-2xl font-bold mb-4">Product Overview</h2>
                     <div className="prose max-w-none text-muted-foreground">
                       <p className="mb-4">
-                        The SenseLive X7050D is a high-performance wireless serial server designed to modernize legacy RS485 devices by integrating them into modern Wi‑Fi networks. Ideal for industrial and IoT applications, it supports multiple wireless operating modes and diverse communication protocols. Its robust design—with a wide power supply range and an extended operating temperature—ensures reliable performance in harsh industrial environments.  
+                        The SenseLive X7050 is a high-performance wireless serial server designed to modernize legacy RS485 devices by integrating them into modern Wi‑Fi networks. Ideal for industrial and IoT applications, it supports multiple wireless operating modes and diverse communication protocols. Its robust design—with a wide power supply range and an extended operating temperature—ensures reliable performance in harsh industrial environments.  
                       </p>
                       <p className="mb-4">
                         The module also provides advanced functionalities such as protocol conversion (Modbus TCP⇆RTU) and cloud communication via MQTT/JSON, making it a versatile solution for applications in automation, smart buildings, and remote monitoring systems. 
@@ -236,7 +236,7 @@ export default function SenseCT222Page() {
                     <div className="relative">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
                       <Image
-                        src="/products/wifi/X7050/X7050.png"
+                        src="/products/wifi/x7050/X7050.png"
                         alt="SenseCT-222 in use"
                         width={600}
                         height={400}

@@ -163,7 +163,7 @@ const allProducts = [
     name: "SenseLive X8555",
     description: "Fiber Optic Converter",
     specs: ["Single-mode", "Dual Fiber", "Industrial Grade", "Wide Temperature Range"],
-    image: "/products/fiber/X8555/X8555img1.png",
+    image: "/products/fiber/X8555/x8555img1.png",
     category: "fiber",
   },
 ]
