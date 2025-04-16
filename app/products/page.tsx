@@ -268,53 +268,58 @@ export default function ProductsPage() {
 
       {/* Product Catalog Download */}
       <section className="w-full py-12 md:py-24">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="md:w-1/2">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="SenseLive Product Catalog"
-                  fill
-                  className="object-cover rounded-lg shadow-lg"
-                />
-              </div>
-            </div>
-            <div className="md:w-1/2 space-y-4">
-              <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Download Our Product Catalog</h2>
-              <p className="text-muted-foreground">
-                Get comprehensive information about our complete product range, including technical specifications,
-                features, and application examples.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <ChevronRight className="h-4 w-4 text-primary" />
-                  Detailed product specifications
-                </li>
-                <li className="flex items-center gap-2">
-                  <ChevronRight className="h-4 w-4 text-primary" />
-                  Application case studies
-                </li>
-                <li className="flex items-center gap-2">
-                  <ChevronRight className="h-4 w-4 text-primary" />
-                  Compatibility information
-                </li>
-                <li className="flex items-center gap-2">
-                  <ChevronRight className="h-4 w-4 text-primary" />
-                  Ordering information
-                </li>
-              </ul>
-              <div className="pt-4">
-                <Link href="/downloads/catalog">
-                  <Button size="lg" className="font-medium">
-                    Download Catalog
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
+  <div className="container px-4 md:px-6">
+    <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+      <div className="md:w-1/2 flex justify-center">
+        <div className="relative">
+          <Image
+            src="/products/catalog.png"
+            alt="SenseLive Product Catalog"
+            width={800}
+            height={600}
+            className="rounded-lg shadow-lg h-auto"
+            style={{
+              maxWidth: "80%",
+              height: "auto"
+            }}
+          />
         </div>
-      </section>
+      </div>
+      <div className="md:w-1/2 space-y-4">
+        <h2 className="text-2xl font-bold tracking-tighter md:text-3xl">Download Our Product Catalog</h2>
+        <p className="text-muted-foreground">
+          Get comprehensive information about our complete product range, including technical specifications,
+          features, and application examples.
+        </p>
+        <ul className="space-y-2 text-sm text-muted-foreground">
+          <li className="flex items-center gap-2">
+            <ChevronRight className="h-4 w-4 text-primary" />
+            Detailed product specifications
+          </li>
+          <li className="flex items-center gap-2">
+            <ChevronRight className="h-4 w-4 text-primary" />
+            Application case studies
+          </li>
+          <li className="flex items-center gap-2">
+            <ChevronRight className="h-4 w-4 text-primary" />
+            Compatibility information
+          </li>
+          <li className="flex items-center gap-2">
+            <ChevronRight className="h-4 w-4 text-primary" />
+            Ordering information
+          </li>
+        </ul>
+        <div className="pt-4">
+          <Link href="/downloads/catalog">
+            <Button size="lg" className="font-medium">
+              Download Catalog
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   )
 }
