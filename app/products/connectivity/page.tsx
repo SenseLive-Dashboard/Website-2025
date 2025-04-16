@@ -47,7 +47,7 @@ export default function ConnectivityPage() {
       name: "X7400",
       description: "Compact 4G Router",
       specs: ["LTE Cat 4", "WiFi Hotspot", "Compact Design", "Easy Setup"],
-      image: "/products/connectivity/x7400/X7400.png",
+      image: "/products/connectivity/x7400/X7400img1.png",
     },
   ]
 
