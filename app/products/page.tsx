@@ -84,7 +84,7 @@ const allProducts = [
     name: "SenseLive X7400D",
     description: "DIN-rail 4G CAT1 DTU with RS485 Interface",
     specs: ["4G CAT1 with 2G Fallback", "RS485 Interface", "MQTT & JSON Support", "Edge Computing Features"],
-    image: "/products/connectivity/x7400D/x7400Dimg1.png",
+    image: "/products/wireless/X7700D/X7700Dimg1.png",
     category: "connectivity",
   },
   {
@@ -102,7 +102,7 @@ const allProducts = [
     name: "SenseLive X5050",
     description: "RS485 to TCP/IP Modbus Server",
     specs: ["Modbus TCP ↔ RTU", "MQTT Gateway", "DIN-Rail Mount", "-40°C to +85°C"],
-    image: "/products/gateway/x5050/x5050.png",
+    image: "/products/gateway/x5050/X5050.png",
     category: "gateways",
   },
 

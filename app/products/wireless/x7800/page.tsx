@@ -30,8 +30,8 @@ const relatedProducts = [
     name: "SenseLive X7900",
     description: "LoRa Gateway with TCP Output",
     specs: ["LoRaWAN & private LoRa Protocol", "TCP/IP Gateway Functionality", "Multiple Network Interface", "Web Based Management Console"],
-    image: "/products/connectivity/X7400/X7400.png",
-    category: "connectivity",
+    image: "/products/wireless/x7900/main.png",
+    category: "wireless",
   },
 ]
 
@@ -150,7 +150,7 @@ export default function ProductPage() {
             </div>
 
             <ProductImageGallery
-              mainImage="/products/wireless/X7800/X7800.png"
+              mainImage="/products/wireless/X7800/x7800.png"
               galleryImages={[
                 "/products/wireless/X7800/X7800img2.png",
                 "/products/wireless/X7800/X7800img3.png",
