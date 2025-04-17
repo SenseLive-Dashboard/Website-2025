@@ -20,7 +20,7 @@ interface SolutionCardModernProps {
   icon?: React.ReactNode
 }
 
-export function SolutionCardModern({ id, name, description, image, badge, icon }: SolutionCardModernProps) {
+export function SolutionCardModern({ id, name, description, image, icon }: SolutionCardModernProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -42,11 +42,11 @@ export function SolutionCardModern({ id, name, description, image, badge, icon }
             className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent transition-opacity duration-300 ${isHovered ? "opacity-100" : "opacity-0"}`}
           ></div>
 
-          {badge && (
+          {/* {badge && (
             <Badge className="absolute top-4 left-4 px-3 py-1 text-sm bg-primary text-primary-foreground rounded-md font-medium">
               {badge}
             </Badge>
-          )}
+          )} */}
 
           {icon && (
             <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 dark:bg-black/80 flex items-center justify-center shadow-lg">

@@ -32,7 +32,7 @@ export function HeroSectionEnhanced() {
       title: "Energy Management System",
       description:
         "Comprehensive energy monitoring and management solution that helps businesses reduce energy consumption and meet sustainability goals.",
-      image: "/solutions/ems/ems1.png",
+      image: "/solutions/ems/ems3.png",
       badge: "Featured Solution",
       link: "/solutions/ems",
     },
@@ -330,6 +330,8 @@ export function HeroSectionEnhanced() {
               key={`image-${currentSlide}`}
               className="relative card-3d-effect"
               style={{
+                width: "700px",  // Fixed width
+                height: "500px", // Fixed height
                 opacity: isAnimating ? 0 : 1,
                 transform: isAnimating
                   ? `perspective(1000px) translateX(${slideDirection === "right-to-left" ? "10%" : "-10%"}) rotateX(${mousePosition.y * 5}deg) rotateY(${mousePosition.x * 5 - 2.5}deg)`
@@ -340,13 +342,13 @@ export function HeroSectionEnhanced() {
             >
               {/* Subtle border glow instead of blur */}
               <div className="absolute -inset-1 bg-gradient-senselive rounded-lg opacity-30 animate-pulse-slow"></div>
-              <div className="relative rounded-lg overflow-hidden shadow-premium card-3d-content">
+              <div className="relative rounded-lg overflow-hidden shadow-premium card-3d-content w-full h-full">
                 <Image
                   src={slides[currentSlide].image || "/placeholder.svg"}
                   alt={slides[currentSlide].title}
                   width={600}
                   height={400}
-                  className="relative rounded-lg object-cover"
+                  className="relative rounded-lg object-cover w-full h-full"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>

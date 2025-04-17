@@ -315,7 +315,7 @@ export default function Home() {
                   name={solution.name}
                   description={solution.description}
                   image={solution.image}
-                  badge={solution.badge}
+                
                   icon={solution.icon}
                 />
               </div>
