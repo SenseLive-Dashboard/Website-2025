@@ -461,7 +461,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about6.png"
+                  src="/about/about7.png"
                   alt="R&D Facility"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -476,7 +476,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-100">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about7.png"
+                  src="/about/about.png"
                   alt="Production Line"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -491,7 +491,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-200">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about8.png"
+                  src="/about/about6.png"
                   alt="Testing Laboratory"
                   fill
                   className="object-cover transition-transform hover:scale-105"

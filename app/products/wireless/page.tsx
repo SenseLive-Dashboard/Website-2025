@@ -50,7 +50,7 @@ export default function WirelessProductsPage() {
         "LoRaWAN & Private LoRa Protocol",
         "Low Power Consumption",
       ],
-      image: "/products/wireless/X7800/x7800.png",
+      image: "/products/wireless/senseliveX7800/main.png",
       category: "wireless",
     },
     {
