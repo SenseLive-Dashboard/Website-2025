@@ -130,7 +130,7 @@ const allProducts = [
       "LoRaWAN & Private LoRa Protocol",
       "Low Power Consumption",
     ],
-    image: `/products/wireless/X7800/main.png`,
+    image: "/products/wireless/senseliveX7800/main.png",
     category: "wireless",
   },
   {
