@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50 animate-fade-in">
+      <section className="w-full py-10 bg-muted/50 animate-fade-in">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4 animate-fade-up">
@@ -461,7 +461,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about7.png"
+                  src="/about/about6.png"
                   alt="R&D Facility"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -476,7 +476,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-100">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about.png"
+                  src="/about/about8.png"
                   alt="Production Line"
                   fill
                   className="object-cover transition-transform hover:scale-105"
@@ -491,7 +491,7 @@ export default function AboutPage() {
             <div className="bg-background p-6 rounded-lg shadow-sm animate-fade-up delay-200">
               <div className="aspect-video relative mb-4 overflow-hidden rounded-lg">
                 <Image
-                  src="/about/about6.png"
+                  src="/about/about7.png"
                   alt="Testing Laboratory"
                   fill
                   className="object-cover transition-transform hover:scale-105"

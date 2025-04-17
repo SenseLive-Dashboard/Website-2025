@@ -41,7 +41,7 @@ export function HeroSectionEnhanced() {
       title: "SenseLive Edge8000",
       description:
         "Next-generation wireless bus bar and surface temperature monitoring system with integrated energy metering and dual relays.",
-      image: "/products/wireless-bus-bar/edge8000/front-right.png",
+      image: "/products/wireless-bus-bar/edge8000/front-right2.png",
       badge: "Premium Product",
       link: "/products/wireless-bus-bar/edge8000",
     },
@@ -50,7 +50,7 @@ export function HeroSectionEnhanced() {
       title: "SenseLive X9000",
       description:
         "Advanced 4G IoT Gateway with edge intelligence, multiple I/O channels, and comprehensive protocol support for industrial applications.",
-      image: "/products/connectivity/x9000/hero-background.png",
+      image: "/products/connectivity/x9000/thumbnail2.png",
       badge: "Featured Product",
       link: "/products/connectivity/x9000",
     },

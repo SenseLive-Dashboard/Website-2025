@@ -61,7 +61,7 @@ export default function WirelessBusBarPage() {
 
   return (
     <div className="flex flex-col">
-      <section className="w-full py-8 bg-muted/30">
+      <section className="w-full py-12 md:py-24 lg:py-10 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex items-center gap-2 mb-8 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground">

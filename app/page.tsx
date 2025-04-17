@@ -220,7 +220,7 @@ export default function Home() {
       <CustomerLogos logos={customerLogos} />
 
       {/* Product Categories Section */}
-      <section className="w-full py-8 md:py-24 lg:py-32 bg-muted/30">
+      <section className="w-full py-8 md:py-24 lg:py-10 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl mb-4">
@@ -256,7 +256,7 @@ export default function Home() {
       
 
       {/* Featured Products */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
+      <section className="w-full py-12 md:py-24 lg:py-15 bg-muted/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="space-y-2 max-w-[800px]">
@@ -294,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* Solutions */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-12 md:py-24 lg:py-15">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="space-y-2 max-w-[800px]">
@@ -344,7 +344,7 @@ export default function Home() {
       </section> */}
 
       {/* Key Features */}
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-12 md:py-24 lg:py-10 mb-11">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
             {keyFeatures.map((feature, index) => (

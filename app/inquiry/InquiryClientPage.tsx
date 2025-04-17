@@ -15,7 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 export default function InquiryClientPage() {
   return (
     <div className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
+      <section className="w-full py-12 md:py-24 lg:py-15 bg-muted/30">
         <div className="container px-4 md:px-6">
           <PageHeader
             title="Request a Quote"
