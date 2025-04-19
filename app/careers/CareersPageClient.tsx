@@ -63,7 +63,7 @@ export default function CareersPageClient() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30 animate-fade-in">
+      <section className="w-full py-12 md:py-24 lg:py-24 bg-muted/30 animate-fade-in">
         <div className="container px-4 md:px-6">
           <PageHeader
             title="Join Our Team"
@@ -129,7 +129,7 @@ export default function CareersPageClient() {
             <div className="relative animate-fade-up delay-200">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
               <Image
-                src="/placeholder.svg?height=500&width=700"
+                src="/about/about2.png"
                 alt="SenseLive Team"
                 width={700}
                 height={500}
@@ -406,28 +406,28 @@ export default function CareersPageClient() {
             </div>
             <div className="grid grid-cols-2 gap-4 animate-fade-up delay-200">
               <Image
-                src="/placeholder.svg?height=250&width=250"
+                src="/about/about9.png"
                 alt="Team Collaboration"
                 width={250}
                 height={250}
                 className="rounded-lg object-cover"
               />
               <Image
-                src="/placeholder.svg?height=250&width=250"
+                src="/about/about10.png"
                 alt="Office Environment"
                 width={250}
                 height={250}
                 className="rounded-lg object-cover"
               />
               <Image
-                src="/placeholder.svg?height=250&width=250"
+                src="/about/about11.png"
                 alt="Team Event"
                 width={250}
                 height={250}
                 className="rounded-lg object-cover"
               />
               <Image
-                src="/placeholder.svg?height=250&width=250"
+                src="/about/about12.png"
                 alt="Innovation Workshop"
                 width={250}
                 height={250}
@@ -452,12 +452,8 @@ export default function CareersPageClient() {
               </Button>
             </Link>
             <Link href="/about">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 font-medium"
-              >
-                Learn More About Us
+            <Button size="lg" variant="secondary" className="font-medium">
+                Learn more About Us
               </Button>
             </Link>
           </div>
