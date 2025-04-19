@@ -388,11 +388,12 @@ export default function Home() {
                     Request a Quote
                   </Button>
                 </Link>
+                
                 <Link href="/contact">
                   <Button
                     size="lg"
-                    variant="outline"
-                    className="w-full min-[400px]:w-auto border-white/20 text-white hover:bg-white/10 font-medium transition-all"
+                    variant="secondary"
+                    className="w-full min-[400px]:w-auto font-medium shadow-lg hover:shadow-xl transition-all"
                   >
                     Contact Sales
                   </Button>

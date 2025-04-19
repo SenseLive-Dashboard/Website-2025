@@ -130,12 +130,14 @@ export default function SolutionsPage() {
                 </li>
               </ul>
 
-              <Link href="/contact">
-                <Button className="gap-2">
-                  Discuss Your Requirements
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
+              <div className="pt-4">
+                <Link href="/contact">
+                  <Button className="gap-2">
+                    Discuss Your Requirements
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
             </div>
 
             <div className="relative">

@@ -355,7 +355,7 @@ export default function SiteHeader() {
               Get a Quote
             </Button> 
           </Link>
-          <ThemeToggle />
+          
           <button
             className="md:hidden rounded-md p-2 hover:bg-muted/50 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
