@@ -168,20 +168,6 @@ export default function ContactPageClient() {
                 phone: "+91 9604070622 / +91 8408058531",
                 email: "info@senselive.io",
               },
-              {
-                region: "Europe",
-                office: "Berlin, Germany",
-                address: "Technologiepark 15, 10587 Berlin, Germany",
-                phone: "+49 30 1234567",
-                email: "info@senselive.io",
-              },
-              {
-                region: "Asia Pacific",
-                office: "Singapore",
-                address: "80 Raffles Place, #25-01 UOB Plaza, Singapore 048624",
-                phone: "+65 6123 4567",
-                email: "info@senselive.io",
-              },
             ].map((office, index) => (
               <Card key={index} className="border-muted">
                 <CardHeader>

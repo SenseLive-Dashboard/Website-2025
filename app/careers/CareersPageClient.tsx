@@ -10,56 +10,56 @@ import { PageHeader } from "@/components/page-header"
 
 export default function CareersPageClient() {
   // Mock job openings
-  const jobOpenings = [
-    {
-      id: "senior-hardware-engineer",
-      title: "Senior Hardware Engineer",
-      department: "Engineering",
-      location: "Boston, MA",
-      type: "Full-time",
-      description: "Design and develop innovative IoT hardware solutions for industrial applications.",
-    },
-    {
-      id: "software-developer",
-      title: "Software Developer",
-      department: "Engineering",
-      location: "Boston, MA",
-      type: "Full-time",
-      description: "Develop and maintain software for our IoT platforms and solutions.",
-    },
-    {
-      id: "product-manager",
-      title: "Product Manager",
-      department: "Product",
-      location: "Berlin, Germany",
-      type: "Full-time",
-      description: "Lead the development and launch of new IoT products and solutions.",
-    },
-    {
-      id: "sales-engineer",
-      title: "Sales Engineer",
-      department: "Sales",
-      location: "Singapore",
-      type: "Full-time",
-      description: "Provide technical expertise and support to our sales team and customers.",
-    },
-    {
-      id: "marketing-specialist",
-      title: "Marketing Specialist",
-      department: "Marketing",
-      location: "Boston, MA",
-      type: "Full-time",
-      description: "Develop and execute marketing strategies for our IoT products and solutions.",
-    },
-    {
-      id: "customer-success-manager",
-      title: "Customer Success Manager",
-      department: "Customer Success",
-      location: "Remote",
-      type: "Full-time",
-      description: "Ensure customer satisfaction and drive adoption of our IoT solutions.",
-    },
-  ]
+  // const jobOpenings = [
+  //   {
+  //     id: "senior-hardware-engineer",
+  //     title: "Senior Hardware Engineer",
+  //     department: "Engineering",
+  //     location: "Boston, MA",
+  //     type: "Full-time",
+  //     description: "Design and develop innovative IoT hardware solutions for industrial applications.",
+  //   },
+  //   {
+  //     id: "software-developer",
+  //     title: "Software Developer",
+  //     department: "Engineering",
+  //     location: "Boston, MA",
+  //     type: "Full-time",
+  //     description: "Develop and maintain software for our IoT platforms and solutions.",
+  //   },
+  //   {
+  //     id: "product-manager",
+  //     title: "Product Manager",
+  //     department: "Product",
+  //     location: "Berlin, Germany",
+  //     type: "Full-time",
+  //     description: "Lead the development and launch of new IoT products and solutions.",
+  //   },
+  //   {
+  //     id: "sales-engineer",
+  //     title: "Sales Engineer",
+  //     department: "Sales",
+  //     location: "Singapore",
+  //     type: "Full-time",
+  //     description: "Provide technical expertise and support to our sales team and customers.",
+  //   },
+  //   {
+  //     id: "marketing-specialist",
+  //     title: "Marketing Specialist",
+  //     department: "Marketing",
+  //     location: "Boston, MA",
+  //     type: "Full-time",
+  //     description: "Develop and execute marketing strategies for our IoT products and solutions.",
+  //   },
+  //   {
+  //     id: "customer-success-manager",
+  //     title: "Customer Success Manager",
+  //     department: "Customer Success",
+  //     location: "Remote",
+  //     type: "Full-time",
+  //     description: "Ensure customer satisfaction and drive adoption of our IoT solutions.",
+  //   },
+  // ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -140,7 +140,7 @@ export default function CareersPageClient() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 animate-fade-in">
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 animate-fade-in">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Current Openings</h2>
@@ -186,7 +186,7 @@ export default function CareersPageClient() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="internship-program" className="w-full py-12 md:py-24 lg:py-32 bg-background animate-fade-in">
         <div className="container px-4 md:px-6">
