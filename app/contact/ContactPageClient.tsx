@@ -1,5 +1,9 @@
 "use client"
 
+
+import React, { useState } from 'react';
+import Input_ from 'postcss/lib/input';
+
 import Link from "next/link"
 import Image from "next/image"
 import { Mail, MapPin, Phone } from "lucide-react"
@@ -10,8 +14,68 @@ import { PageHeader } from "@/components/page-header"
 import { Input } from "@/components/ui/input"
 import GoogleMap from "@/components/location"
 import MapComponent from "@/components/location"
+import { Textarea } from '@/components/ui/textarea';
+
+
 
 export default function ContactPageClient() {
+  
+  const [status, setStatus] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const formJson = Object.fromEntries(formData.entries());
+    if (!formJson.name || !formJson.email || !formJson.subject || !formJson.message) {
+      setErrorMessage("Please fill in all required fields.");
+      setStatus('error');
+      return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(formJson.email as string)) {
+      setErrorMessage("Please enter a valid email address.");
+      setStatus('error');
+      return;
+  }
+
+  // --- Send Data using Fetch API to YOUR API Route ---
+  try {
+      const response = await fetch("/api/contact", { // <-- Point to your internal API
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formJson),
+      });
+
+      const result = await response.json(); // Get the response body
+
+      if (response.ok) {
+          setStatus('success');
+          form.reset();
+      } else {
+          // Use the error message from your API route
+          setErrorMessage(result.message || "Something went wrong. Please try again.");
+          setStatus('error');
+      }
+  } catch (error) {
+      console.error("Submission error:", error);
+      setErrorMessage("Network error or server issue. Please try again.");
+      setStatus('error');
+  }
+
+  };
+  
+  
+  
+  
+  
+  
   return (
     <div className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/30">
@@ -79,71 +143,52 @@ export default function ContactPageClient() {
 
             <div className="bg-background p-6 rounded-lg border">
               <h3 className="text-xl font-bold mb-4">Send Us a Message</h3>
-              <form
-                className="space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault()
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                {/* Input fields for name, email, phone, subject */}
+                <div className="grid gap-2">
+                    <label htmlFor="name" className="text-sm font-medium">Name</label>
+                    <Input id="name" name="name" placeholder="Your name" required />
+                </div>
+                <div className="grid gap-2">
+                    <label htmlFor="email" className="text-sm font-medium">Email</label>
+                    <Input id="email" name="email" type="email" placeholder="Your email" required />
+                </div>
+                <div className="grid gap-2">
+                    <label htmlFor="phone" className="text-sm font-medium">Phone (optional)</label>
+                    <Input id="phone" name="phone" placeholder="Your phone number" />
+                </div>
+                <div className="grid gap-2">
+                    <label htmlFor="subject" className="text-sm font-medium">Subject</label>
+                    <Input id="subject" name="subject" placeholder="Message subject" required />
+                </div>
+                {/* Textarea for message */}
+                <div className="grid gap-2">
+                    <label htmlFor="message" className="text-sm font-medium">Message</label>
+                    <Textarea
+                        id="message"
+                        name="message"
+                        className="min-h-[120px]"
+                        placeholder="Your message"
+                        required
+                    />
+                </div>
 
-                  // Get form elements
-                  const form = e.currentTarget
-                  const nameInput = form.querySelector("#name") as HTMLInputElement
-                  const emailInput = form.querySelector("#email") as HTMLInputElement
-                  const subjectInput = form.querySelector("#subject") as HTMLInputElement
-                  const messageInput = form.querySelector("#message") as HTMLTextAreaElement
+                {/* Status Messages */}
+                {status === 'success' && (
+                    <p className="text-sm text-green-600">Thank you! Your message has been sent.</p>
+                )}
+                {status === 'error' && (
+                    <p className="text-sm text-red-600">{errorMessage}</p>
+                )}
 
-                  // Basic validation
-                  if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
-                    alert("Please fill in all required fields.")
-                    return
-                  }
-
-                  // Email validation
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                  if (!emailRegex.test(emailInput.value)) {
-                    alert("Please enter a valid email address.")
-                    return
-                  }
-
-                  // If validation passes
-                  alert("Thank you for your message. We'll get back to you soon!")
-                  form.reset()
-                }}
-              >
-                <div className="grid gap-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name
-                  </label>
-                  <Input id="name" placeholder="Your name" />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input id="email" type="email" placeholder="Your email" />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="phone" className="text-sm font-medium">
-                    Phone (optional)
-                  </label>
-                  <Input id="phone" placeholder="Your phone number" />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <Input id="subject" placeholder="Message subject" />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    className="min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your message"
-                  ></textarea>
-                </div>
-                <Button className="w-full">Send Message</Button>
+                {/* Submit Button */}
+                <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={status === 'submitting'}
+                >
+                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                </Button>
               </form>
             </div>
           </div>
@@ -160,7 +205,7 @@ export default function ContactPageClient() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+            {[  
               {
                 region: "India",
                 office: "Nagpur, India (Headquarters)",
