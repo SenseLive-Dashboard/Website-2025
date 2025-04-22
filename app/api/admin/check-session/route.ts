@@ -3,8 +3,8 @@ import { NextResponse } from "next/server"
 
 export async function GET() {
   const cookieStore = cookies()
-  const adminCookie = cookieStore.get("admin")
-  const adminLoggedInCookie = cookieStore.get("adminLoggedIn")
+  const adminCookie = (await cookieStore).get("admin")
+  const adminLoggedInCookie = (await cookieStore).get("adminLoggedIn")
 
   // Check if either cookie exists
   if (adminCookie || adminLoggedInCookie) {

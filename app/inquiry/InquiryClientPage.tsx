@@ -11,8 +11,80 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useState } from "react"
 
 export default function InquiryClientPage() {
+
+  const [status, setStatus] = useState(''); // '', 'submitting', 'success', 'error'
+    const [errorMessage, setErrorMessage] = useState('');
+
+    // Optional: State for controlled Selects if needed for default values or resets
+    const [interestType, setInterestType] = useState('both'); // Matches default RadioGroup value
+    const [industry, setIndustry] = useState('');
+    const [timeline, setTimeline] = useState('');
+    const [budget, setBudget] = useState('');
+
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus('submitting');
+        setErrorMessage('');
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        // --- Optional: Client-Side Basic Validation (Server validation is primary) ---
+        const email = formData.get('email');
+        const privacy = formData.get('privacy-policy'); // Checkbox value 'on' if checked
+        if (!email || !privacy /* Add checks for other truly essential fields if desired */) {
+             setErrorMessage("Please fill in required fields and accept the privacy policy.");
+             setStatus('error');
+             return;
+        }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email as string)) {
+            setErrorMessage("Please enter a valid email address.");
+            setStatus('error');
+            return;
+        }
+        // --- End Client Validation ---
+
+
+        try {
+            // --- Send Data using Fetch API ---
+            // !! Point to your new API endpoint !!
+            const response = await fetch("/api/inquiry", {
+                method: 'POST',
+                body: formData, // Send FormData directly
+                // No 'Content-Type' header needed!
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                form.reset(); // Reset form fields
+                // Reset controlled state if used
+                setInterestType('both');
+                setIndustry('');
+                setTimeline('');
+                setBudget('');
+            } else {
+                setErrorMessage(result.message || "Submission failed. Please try again.");
+                setStatus('error');
+            }
+        } catch (error: any) {
+             if (error instanceof SyntaxError) { // Handle cases where response isn't JSON
+                 console.error("Failed to parse JSON response:", error);
+                 setErrorMessage("Received an invalid response from the server.");
+             } else {
+                 console.error("Submission error:", error);
+                 setErrorMessage("Network error or server issue. Please try again.");
+             }
+            setStatus('error');
+        }
+    };
+
   return (
     <div className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-15 bg-muted/30">
@@ -24,248 +96,222 @@ export default function InquiryClientPage() {
 
           <div className="grid md:grid-cols-3 gap-12 mt-12">
             <div className="md:col-span-2">
-              <div className="bg-background p-6 rounded-lg border">
-                <form
-                  className="space-y-6"
-                  onSubmit={(e) => {
-                    e.preventDefault()
-
-                    // Get form elements
-                    const form = e.currentTarget
-                    const firstNameInput = form.querySelector("#first-name") as HTMLInputElement
-                    const lastNameInput = form.querySelector("#last-name") as HTMLInputElement
-                    const emailInput = form.querySelector("#email") as HTMLInputElement
-                    const phoneInput = form.querySelector("#phone") as HTMLInputElement
-                    const companyInput = form.querySelector("#company") as HTMLInputElement
-                    const jobTitleInput = form.querySelector("#job-title") as HTMLInputElement
-                    const projectDescInput = form.querySelector("#project-description") as HTMLTextAreaElement
-                    const privacyCheckbox = form.querySelector("#privacy-policy") as HTMLInputElement
-
-                    // Basic validation
-                    if (
-                      !firstNameInput.value ||
-                      !lastNameInput.value ||
-                      !emailInput.value ||
-                      !phoneInput.value ||
-                      !companyInput.value ||
-                      !jobTitleInput.value ||
-                      !projectDescInput.value ||
-                      !privacyCheckbox.checked
-                    ) {
-                      alert("Please fill in all required fields and accept the privacy policy.")
-                      return
-                    }
-
-                    // Email validation
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                    if (!emailRegex.test(emailInput.value)) {
-                      alert("Please enter a valid email address.")
-                      return
-                    }
-
-                    // Phone validation - basic check for minimum length
-                    if (phoneInput.value.replace(/\D/g, "").length < 10) {
-                      alert("Please enter a valid phone number.")
-                      return
-                    }
-
-                    // If validation passes
-                    alert(
-                      "Thank you for your inquiry. Our team will prepare a customized quote for you and contact you shortly.",
-                    )
-                    form.reset()
-                  }}
-                >
-                  <div className="space-y-4">
+            <div className="bg-background p-6 rounded-lg border">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+                {/* --- Contact Information Section --- */}
+                <div className="space-y-4">
                     <h3 className="text-lg font-bold">Contact Information</h3>
-
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="grid gap-2">
-                        <Label htmlFor="first-name">First Name *</Label>
-                        <Input id="first-name" placeholder="First name" required />
-                      </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="last-name">Last Name *</Label>
-                        <Input id="last-name" placeholder="Last name" required />
-                      </div>
+                        <div className="grid gap-1.5">
+                            <Label htmlFor="first-name">First Name *</Label>
+                            <Input id="first-name" name="first-name" placeholder="First name" required />
+                        </div>
+                        <div className="grid gap-1.5">
+                            <Label htmlFor="last-name">Last Name *</Label>
+                            <Input id="last-name" name="last-name" placeholder="Last name" required />
+                        </div>
                     </div>
-
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="grid gap-2">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input id="email" type="email" placeholder="Email address" required />
-                      </div>
-                      <div className="grid gap-2">
-                        <Label htmlFor="phone">Phone *</Label>
-                        <Input id="phone" placeholder="Phone number" required />
-                      </div>
+                        <div className="grid gap-1.5">
+                            <Label htmlFor="email">Email *</Label>
+                            <Input id="email" name="email" type="email" placeholder="Email address" required />
+                        </div>
+                        <div className="grid gap-1.5">
+                            <Label htmlFor="phone">Phone *</Label>
+                             {/* Use type="tel" for better mobile experience */}
+                            <Input id="phone" name="phone" type="tel" placeholder="Phone number" required />
+                        </div>
                     </div>
-
-                    <div className="grid gap-2">
-                      <Label htmlFor="company">Company *</Label>
-                      <Input id="company" placeholder="Company name" required />
+                    <div className="grid gap-1.5">
+                        <Label htmlFor="company">Company *</Label>
+                        <Input id="company" name="company" placeholder="Company name" required />
                     </div>
-
-                    <div className="grid gap-2">
-                      <Label htmlFor="job-title">Job Title *</Label>
-                      <Input id="job-title" placeholder="Your job title" required />
+                    <div className="grid gap-1.5">
+                        <Label htmlFor="job-title">Job Title *</Label>
+                        <Input id="job-title" name="job-title" placeholder="Your job title" required />
                     </div>
-                  </div>
+                </div>
 
-                  <div className="space-y-4">
+                {/* --- Project Information Section --- */}
+                <div className="space-y-4">
                     <h3 className="text-lg font-bold">Project Information</h3>
 
+                    {/* Interest Type (Radio Group) */}
                     <div className="grid gap-2">
-                      <Label>What are you interested in? *</Label>
-                      <RadioGroup defaultValue="both">
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="hardware" id="hardware" />
-                          <Label htmlFor="hardware">Hardware Products</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="solutions" id="solutions" />
-                          <Label htmlFor="solutions">IoT Solutions</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="both" id="both" />
-                          <Label htmlFor="both">Both Hardware and Solutions</Label>
-                        </div>
-                      </RadioGroup>
+                        <Label>What are you interested in? *</Label>
+                        {/* Add name="interest-type" */}
+                        <RadioGroup name="interest-type" required defaultValue={interestType} onValueChange={setInterestType}>
+                            <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="hardware" id="interest-hardware" />
+                                <Label htmlFor="interest-hardware">Hardware Products</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="solutions" id="interest-solutions" />
+                                <Label htmlFor="interest-solutions">IoT Solutions</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <RadioGroupItem value="both" id="interest-both" />
+                                <Label htmlFor="interest-both">Both Hardware and Solutions</Label>
+                            </div>
+                        </RadioGroup>
                     </div>
 
+                    {/* Products Interested In (Checkboxes) */}
                     <div className="grid gap-2">
-                      <Label>Which products are you interested in? (Select all that apply)</Label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="modbus-gateways" />
-                          <Label htmlFor="modbus-gateways">Modbus Gateways</Label>
+                        <Label>Which products are you interested in? (Select all that apply)</Label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {/* Add name="product-..." to each checkbox */}
+                            <div className="flex items-center space-x-2">
+                                <Checkbox id="product-modbus-gateways" name="product-modbus-gateways" />
+                                <Label htmlFor="product-modbus-gateways">Modbus Gateways</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Checkbox id="product-remote-io" name="product-remote-io" />
+                                <Label htmlFor="product-remote-io">Remote IO Controllers</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Checkbox id="product-4g-5g" name="product-4g-5g" />
+                                <Label htmlFor="product-4g-5g">4G/5G Solutions</Label>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                                <Checkbox id="product-wifi" name="product-wifi" />
+                                <Label htmlFor="product-wifi">WiFi Solutions</Label>
+                            </div>
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="product-optical-fiber" name="product-optical-fiber" />
+                                 <Label htmlFor="product-optical-fiber">Optical Fiber</Label>
+                             </div>
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="product-lora-zigbee" name="product-lora-zigbee" />
+                                 <Label htmlFor="product-lora-zigbee">LoRa/ZigBee Devices</Label>
+                             </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="remote-io" />
-                          <Label htmlFor="remote-io">Remote IO Controllers</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="4g-5g" />
-                          <Label htmlFor="4g-5g">4G/5G Solutions</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="wifi" />
-                          <Label htmlFor="wifi">WiFi Solutions</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="optical-fiber" />
-                          <Label htmlFor="optical-fiber">Optical Fiber</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="lora-zigbee" />
-                          <Label htmlFor="lora-zigbee">LoRa/ZigBee Devices</Label>
-                        </div>
-                      </div>
                     </div>
 
+                     {/* Solutions Interested In (Checkboxes) */}
                     <div className="grid gap-2">
-                      <Label>Which solutions are you interested in? (Select all that apply)</Label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="ems" />
-                          <Label htmlFor="ems">Energy Management System</Label>
+                        <Label>Which solutions are you interested in? (Select all that apply)</Label>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                             {/* Add name="solution-..." to each checkbox */}
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="solution-ems" name="solution-ems" />
+                                 <Label htmlFor="solution-ems">Energy Management System</Label>
+                             </div>
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="solution-water-management" name="solution-water-management" />
+                                 <Label htmlFor="solution-water-management">Water Management</Label>
+                             </div>
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="solution-digital-checksheet" name="solution-digital-checksheet" />
+                                 <Label htmlFor="solution-digital-checksheet">Digital Checksheet</Label>
+                             </div>
+                             <div className="flex items-center space-x-2">
+                                 <Checkbox id="solution-production-monitoring" name="solution-production-monitoring" />
+                                 <Label htmlFor="solution-production-monitoring">Production Monitoring</Label>
+                             </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="water-management" />
-                          <Label htmlFor="water-management">Water Management</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="digital-checksheet" />
-                          <Label htmlFor="digital-checksheet">Digital Checksheet</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <Checkbox id="production-monitoring" />
-                          <Label htmlFor="production-monitoring">Production Monitoring</Label>
-                        </div>
-                      </div>
                     </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="industry">Industry *</Label>
-                      <Select>
-                        <SelectTrigger id="industry">
-                          <SelectValue placeholder="Select your industry" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                          <SelectItem value="energy">Energy & Utilities</SelectItem>
-                          <SelectItem value="oil-gas">Oil & Gas</SelectItem>
-                          <SelectItem value="water">Water & Wastewater</SelectItem>
-                          <SelectItem value="building">Building Automation</SelectItem>
-                          <SelectItem value="agriculture">Agriculture</SelectItem>
-                          <SelectItem value="transportation">Transportation & Logistics</SelectItem>
-                          <SelectItem value="healthcare">Healthcare</SelectItem>
-                          <SelectItem value="retail">Retail</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    {/* Industry (Select) */}
+                    <div className="grid gap-1.5">
+                        <Label htmlFor="industry">Industry *</Label>
+                        {/* Add name="industry" */}
+                        <Select name="industry" required value={industry} onValueChange={setIndustry}>
+                            <SelectTrigger id="industry">
+                                <SelectValue placeholder="Select your industry" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                                <SelectItem value="energy">Energy & Utilities</SelectItem>
+                                <SelectItem value="oil-gas">Oil & Gas</SelectItem>
+                                <SelectItem value="water">Water & Wastewater</SelectItem>
+                                <SelectItem value="building">Building Automation</SelectItem>
+                                <SelectItem value="agriculture">Agriculture</SelectItem>
+                                <SelectItem value="transportation">Transportation & Logistics</SelectItem>
+                                <SelectItem value="healthcare">Healthcare</SelectItem>
+                                <SelectItem value="retail">Retail</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="project-timeline">Project Timeline *</Label>
-                      <Select>
-                        <SelectTrigger id="project-timeline">
-                          <SelectValue placeholder="Select your timeline" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="immediate">Immediate (0-3 months)</SelectItem>
-                          <SelectItem value="short">Short-term (3-6 months)</SelectItem>
-                          <SelectItem value="medium">Medium-term (6-12 months)</SelectItem>
-                          <SelectItem value="long">Long-term (12+ months)</SelectItem>
-                          <SelectItem value="planning">Just planning</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    {/* Project Timeline (Select) */}
+                    <div className="grid gap-1.5">
+                        <Label htmlFor="project-timeline">Project Timeline *</Label>
+                         {/* Add name="project-timeline" */}
+                        <Select name="project-timeline" required value={timeline} onValueChange={setTimeline}>
+                            <SelectTrigger id="project-timeline">
+                                <SelectValue placeholder="Select your timeline" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="immediate">Immediate (0-3 months)</SelectItem>
+                                <SelectItem value="short">Short-term (3-6 months)</SelectItem>
+                                <SelectItem value="medium">Medium-term (6-12 months)</SelectItem>
+                                <SelectItem value="long">Long-term (12+ months)</SelectItem>
+                                <SelectItem value="planning">Just planning</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="project-description">Project Description *</Label>
-                      <Textarea
-                        id="project-description"
-                        placeholder="Please describe your project, requirements, and any specific questions you have."
-                        className="min-h-[150px]"
-                        required
-                      />
+                    {/* Project Description */}
+                    <div className="grid gap-1.5">
+                        <Label htmlFor="project-description">Project Description *</Label>
+                        <Textarea
+                            id="project-description"
+                            name="project-description"
+                            placeholder="Please describe your project, requirements, and any specific questions you have."
+                            className="min-h-[150px]"
+                            required
+                        />
                     </div>
 
-                    <div className="grid gap-2">
-                      <Label htmlFor="budget">Estimated Budget (USD)</Label>
-                      <Select>
-                        <SelectTrigger id="budget">
-                          <SelectValue placeholder="Select your budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-10k">Under $10,000</SelectItem>
-                          <SelectItem value="10k-50k">$10,000 - $50,000</SelectItem>
-                          <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                          <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
-                          <SelectItem value="250k-plus">$250,000+</SelectItem>
-                          <SelectItem value="undecided">Undecided</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                     {/* Budget (Select - Optional Field) */}
+                     <div className="grid gap-1.5">
+                         <Label htmlFor="budget">Estimated Budget (USD)</Label>
+                         {/* Add name="budget" */}
+                         <Select name="budget" value={budget} onValueChange={setBudget}>
+                             <SelectTrigger id="budget">
+                                 <SelectValue placeholder="Select your budget range (optional)" />
+                             </SelectTrigger>
+                             <SelectContent>
+                                 <SelectItem value="under-10k">Under $10,000</SelectItem>
+                                 <SelectItem value="10k-50k">$10,000 - $50,000</SelectItem>
+                                 <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
+                                 <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
+                                 <SelectItem value="250k-plus">$250,000+</SelectItem>
+                                 <SelectItem value="undecided">Undecided</SelectItem>
+                             </SelectContent>
+                         </Select>
+                     </div>
 
+                    {/* Privacy Policy Checkbox */}
                     <div className="flex items-start space-x-2">
-                      <Checkbox id="privacy-policy" className="mt-1" />
-                      <Label htmlFor="privacy-policy" className="text-sm">
-                        I agree to the processing of my personal data according to the{" "}
-                        <Link href="/privacy" className="text-primary hover:underline">
-                          Privacy Policy
-                        </Link>
-                        .
-                      </Label>
+                        {/* Add name="privacy-policy" */}
+                        <Checkbox id="privacy-policy" name="privacy-policy" className="mt-1" required />
+                        <Label htmlFor="privacy-policy" className="text-sm font-normal">
+                            I agree to the processing of my personal data according to the{" "}
+                            <Link href="/privacy" className="text-primary hover:underline">
+                                Privacy Policy
+                            </Link>
+                            .
+                        </Label>
                     </div>
-                  </div>
+                </div>
 
-                  <Button type="submit" className="w-full">
-                    Submit Request
-                  </Button>
-                </form>
-              </div>
+                {/* --- Status Messages --- */}
+                {status === 'success' && (
+                    <p className="text-sm text-green-600">Thank you! Your quote request has been submitted. Our team will contact you shortly.</p>
+                )}
+                {status === 'error' && (
+                    <p className="text-sm text-red-600">{errorMessage}</p>
+                )}
+
+                {/* --- Submit Button --- */}
+                <Button type="submit" className="w-full" disabled={status === 'submitting'}>
+                     {status === 'submitting' ? 'Submitting...' : 'Submit Request'}
+                </Button>
+            </form>
+        </div>
             </div>
 
             <div className="space-y-6">

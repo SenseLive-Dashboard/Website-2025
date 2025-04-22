@@ -1,14 +1,101 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, CheckCircle, Clock, Globe, MapPin, Users } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { PageHeader } from "@/components/page-header"
 
+import React, { useState } from 'react';
+import Link from 'next/link';
+// Assuming you are using Shadcn UI or similar components
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+
 export default function CareersPageClient() {
+
+  const [status, setStatus] = useState(''); // '', 'submitting', 'success', 'error'
+  const [errorMessage, setErrorMessage] = useState('');
+  // State specifically for the Select component if needed for Shadcn UI
+  const [selectedArea, setSelectedArea] = useState('');
+
+  const handleSubmit = async (e:any) => {
+      e.preventDefault();
+      setStatus('submitting');
+      setErrorMessage('');
+
+      const form = e.currentTarget;
+      const formData = new FormData(form); // Use FormData for file uploads
+
+      // --- Client-Side Validation (Good practice before sending) ---
+      const name = formData.get('intern-name');
+      const email = formData.get('intern-email');
+      const phone = formData.get('intern-phone');
+      const education = formData.get('intern-education');
+      const area = formData.get('intern-area'); // FormData gets the value directly
+      const startDate = formData.get('intern-start');
+      const resumeFile = formData.get('intern-resume') as File; // Get the file object
+      const message = formData.get('intern-message');
+      const terms = formData.get('intern-terms'); // Checkbox value is 'on' if checked
+
+      if (!name || !email || !phone || !education || !area || !startDate || !resumeFile || resumeFile.size === 0 || !message || terms !== 'on') {
+          setErrorMessage("Please fill in all required fields, upload a resume, and accept the terms.");
+          setStatus('error');
+          return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email as string)) {
+          setErrorMessage("Please enter a valid email address.");
+          setStatus('error');
+          return;
+      }
+
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+      if (resumeFile.size > MAX_FILE_SIZE) {
+          setErrorMessage(`Resume file size must be less than ${MAX_FILE_SIZE / 1024 / 1024}MB.`);
+          setStatus('error');
+          return;
+      }
+
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+      if (!allowedTypes.includes(resumeFile.type)) {
+           setErrorMessage('Invalid resume file type. Only PDF, DOC, DOCX allowed.');
+           setStatus('error');
+           return;
+      }
+
+
+      // --- Send Data using Fetch API ---
+      try {
+          // !! Point to your new API endpoint !!
+          const response = await fetch("/api/careers", {
+              method: 'POST',
+              // ** IMPORTANT: Do NOT set Content-Type header manually for FormData **
+              // headers: { 'Content-Type': 'multipart/form-data' }, // Browser sets this automatically
+              body: formData, // Send the FormData object directly
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+              setStatus('success');
+              form.reset(); // Reset form fields
+              setSelectedArea(''); // Reset select state if using controlled component
+          } else {
+              setErrorMessage(result.message || "Submission failed. Please try again.");
+              setStatus('error');
+          }
+      } catch (error) {
+          console.error("Submission error:", error);
+          setErrorMessage("Network error or server issue. Please try again.");
+          setStatus('error');
+      }
+  };
   // Mock job openings
   // const jobOpenings = [
   //   {
@@ -188,192 +275,110 @@ export default function CareersPageClient() {
         </div>
       </section> */}
 
-      <section id="internship-program" className="w-full py-12 md:py-24 lg:py-32 bg-background animate-fade-in">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center text-center space-y-4 mb-12">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">6-Month Internship Program</h2>
-            <p className="text-muted-foreground md:text-xl max-w-[800px]">
-              Gain valuable industry experience and kickstart your career with our comprehensive internship program.
-            </p>
-          </div>
+<section id="internship-program" className="w-full py-12 md:py-24 lg:py-32 bg-background animate-fade-in">
+            <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center text-center space-y-4 mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">6-Month Internship Program</h2>
+                    <p className="text-muted-foreground md:text-xl max-w-[800px]">
+                        Gain valuable industry experience and kickstart your career with our comprehensive internship program.
+                    </p>
+                </div>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-card p-6 rounded-lg border">
-              <h3 className="text-xl font-bold mb-4">Internship Application</h3>
-              <form
-                className="space-y-4"
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  // Basic validation
-                  const form = e.currentTarget
-                  const nameInput = form.querySelector("#intern-name") as HTMLInputElement
-                  const emailInput = form.querySelector("#intern-email") as HTMLInputElement
-                  const phoneInput = form.querySelector("#intern-phone") as HTMLInputElement
-                  const educationInput = form.querySelector("#intern-education") as HTMLInputElement
-                  const areaSelect = form.querySelector("#intern-area") as HTMLSelectElement
-                  const startInput = form.querySelector("#intern-start") as HTMLInputElement
-                  const resumeInput = form.querySelector("#intern-resume") as HTMLInputElement
-                  const messageInput = form.querySelector("#intern-message") as HTMLTextAreaElement
-                  const termsCheckbox = form.querySelector("#intern-terms") as HTMLInputElement
+                <div className="max-w-3xl mx-auto">
+                    <div className="bg-card p-6 rounded-lg border">
+                        <h3 className="text-xl font-bold mb-4">Internship Application</h3>
+                        {/* Use the new handleSubmit */}
+                        <form className="space-y-4" onSubmit={handleSubmit}>
+                            {/* --- Name --- */}
+                            <div className="grid gap-1.5"> {/* Use gap-1.5 for tighter spacing with Label */}
+                                <Label htmlFor="intern-name">Full Name *</Label>
+                                <Input id="intern-name" name="intern-name" placeholder="Your full name" required />
+                            </div>
+                            {/* --- Email --- */}
+                            <div className="grid gap-1.5">
+                                <Label htmlFor="intern-email">Email *</Label>
+                                <Input id="intern-email" name="intern-email" type="email" placeholder="Your email address" required />
+                            </div>
+                             {/* --- Phone --- */}
+                             <div className="grid gap-1.5">
+                                <Label htmlFor="intern-phone">Phone *</Label>
+                                <Input id="intern-phone" name="intern-phone" type="tel" placeholder="Your phone number" required />
+                             </div>
+                            {/* --- Education --- */}
+                            <div className="grid gap-1.5">
+                                <Label htmlFor="intern-education">Educational Background *</Label>
+                                <Input id="intern-education" name="intern-education" placeholder="University/College and Degree" required />
+                            </div>
+                            {/* --- Area of Interest (Shadcn Example) --- */}
+                             <div className="grid gap-1.5">
+                                <Label htmlFor="intern-area">Area of Interest *</Label>
+                                 {/* Add name="intern-area" to the Select component */}
+                                <Select name="intern-area" required value={selectedArea} onValueChange={setSelectedArea}>
+                                    <SelectTrigger id="intern-area">
+                                        <SelectValue placeholder="Select an area" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="hardware">Hardware Engineering</SelectItem>
+                                        <SelectItem value="software">Software Development</SelectItem>
+                                        <SelectItem value="iot">IoT Solutions</SelectItem>
+                                        <SelectItem value="marketing">Marketing</SelectItem>
+                                        <SelectItem value="sales">Sales</SelectItem>
+                                        <SelectItem value="other">Other</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                             </div>
+                            {/* --- Start Date --- */}
+                            <div className="grid gap-1.5">
+                                <Label htmlFor="intern-start">Preferred Start Date *</Label>
+                                <Input id="intern-start" name="intern-start" type="date" required />
+                            </div>
+                             {/* --- Resume --- */}
+                            <div className="grid gap-1.5">
+                                 <Label htmlFor="intern-resume">Resume/CV *</Label>
+                                 <Input id="intern-resume" name="intern-resume" type="file" accept=".pdf,.doc,.docx" required />
+                                 <p className="text-xs text-muted-foreground">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
+                            </div>
+                            {/* --- Message --- */}
+                            <div className="grid gap-1.5">
+                                <Label htmlFor="intern-message">Why do you want to intern at SenseLive? *</Label>
+                                <Textarea
+                                    id="intern-message"
+                                    name="intern-message"
+                                    className="min-h-[120px]"
+                                    placeholder="Tell us why you're interested in interning with us and what you hope to learn"
+                                    required
+                                />
+                            </div>
+                            {/* --- Terms (Shadcn Example) --- */}
+                             <div className="flex items-center space-x-2">
+                                 {/* Add name="intern-terms" */}
+                                 <Checkbox id="intern-terms" name="intern-terms" required />
+                                 <Label htmlFor="intern-terms" className="text-sm font-normal"> {/* Use font-normal for label */}
+                                     I agree to the processing of my personal data according to the{" "}
+                                     <Link href="/privacy" className="text-primary hover:underline">
+                                         Privacy Policy
+                                     </Link>
+                                     .
+                                 </Label>
+                             </div>
 
-                  // Check required fields
-                  if (
-                    !nameInput.value ||
-                    !emailInput.value ||
-                    !phoneInput.value ||
-                    !educationInput.value ||
-                    !areaSelect.value ||
-                    !startInput.value ||
-                    !resumeInput.files?.length ||
-                    !messageInput.value ||
-                    !termsCheckbox.checked
-                  ) {
-                    alert("Please fill in all required fields and accept the terms.")
-                    return
-                  }
+                             {/* --- Status Messages --- */}
+                            {status === 'success' && (
+                                <p className="text-sm text-green-600">Thank you for your application! We will review your information and contact you soon.</p>
+                            )}
+                            {status === 'error' && (
+                                <p className="text-sm text-red-600">{errorMessage}</p>
+                            )}
 
-                  // Email validation
-                  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                  if (!emailRegex.test(emailInput.value)) {
-                    alert("Please enter a valid email address.")
-                    return
-                  }
-
-                  // File size validation (max 5MB)
-                  if (resumeInput.files && resumeInput.files[0].size > 5 * 1024 * 1024) {
-                    alert("Resume file size must be less than 5MB.")
-                    return
-                  }
-
-                  // If all validation passes
-                  alert("Thank you for your application! We will review your information and contact you soon.")
-                  form.reset()
-                }}
-              >
-                <div className="grid gap-2">
-                  <label htmlFor="intern-name" className="text-sm font-medium">
-                    Full Name *
-                  </label>
-                  <input
-                    id="intern-name"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your full name"
-                    required
-                  />
+                            {/* --- Submit Button --- */}
+                            <Button type="submit" className="w-full" disabled={status === 'submitting'}>
+                                {status === 'submitting' ? 'Submitting...' : 'Submit Application'}
+                            </Button>
+                        </form>
+                    </div>
                 </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-email" className="text-sm font-medium">
-                    Email *
-                  </label>
-                  <input
-                    id="intern-email"
-                    type="email"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your email address"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-phone" className="text-sm font-medium">
-                    Phone *
-                  </label>
-                  <input
-                    id="intern-phone"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your phone number"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-education" className="text-sm font-medium">
-                    Educational Background *
-                  </label>
-                  <input
-                    id="intern-education"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="University/College and Degree"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-area" className="text-sm font-medium">
-                    Area of Interest *
-                  </label>
-                  <select
-                    id="intern-area"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    required
-                  >
-                    <option value="">Select an area</option>
-                    <option value="hardware">Hardware Engineering</option>
-                    <option value="software">Software Development</option>
-                    <option value="iot">IoT Solutions</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="sales">Sales</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-start" className="text-sm font-medium">
-                    Preferred Start Date *
-                  </label>
-                  <input
-                    id="intern-start"
-                    type="date"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    required
-                  />
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-resume" className="text-sm font-medium">
-                    Resume/CV *
-                  </label>
-                  <input
-                    id="intern-resume"
-                    type="file"
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    accept=".pdf,.doc,.docx"
-                    required
-                  />
-                  <p className="text-xs text-muted-foreground">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
-                </div>
-                <div className="grid gap-2">
-                  <label htmlFor="intern-message" className="text-sm font-medium">
-                    Why do you want to intern at SenseLive? *
-                  </label>
-                  <textarea
-                    id="intern-message"
-                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Tell us why you're interested in interning with us and what you hope to learn"
-                    required
-                  ></textarea>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <input
-                    type="checkbox"
-                    id="intern-terms"
-                    className="rounded border-gray-300 text-primary focus:ring-primary"
-                    required
-                  />
-                  <label htmlFor="intern-terms" className="text-sm">
-                    I agree to the processing of my personal data according to the{" "}
-                    <Link href="/privacy" className="text-primary hover:underline">
-                      Privacy Policy
-                    </Link>
-                    .
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-                >
-                  Submit Application
-                </button>
-              </form>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
 
       <section className="w-full py-12 md:py-24 bg-muted/30 animate-fade-in">
         <div className="container px-4 md:px-6">
