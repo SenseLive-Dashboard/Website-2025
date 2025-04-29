@@ -1,10 +1,8 @@
-// src/app/api/quote-request/route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import pool from '@/lib/db'; // Adjust path based on your project structure
 
 // --- Nodemailer Transporter Setup ---
-// (Use the same transporter setup as your other routes)
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_SERVER_HOST,
     port: parseInt(process.env.EMAIL_SERVER_PORT || '587', 10),
@@ -24,6 +22,7 @@ const createHtmlList = (items: string[]): string => {
 };
 
 export async function POST(request: NextRequest) {
+    let connection;
     try {
         const formData = await request.formData();
 
@@ -58,31 +57,67 @@ export async function POST(request: NextRequest) {
         if (formData.get('solution-digital-checksheet') === 'on') interestedSolutions.push('Digital Checksheet');
         if (formData.get('solution-production-monitoring') === 'on') interestedSolutions.push('Production Monitoring');
 
-
         // --- Server-Side Validation ---
         const requiredFields = [firstName, lastName, email, phone, company, jobTitle, interestType, industry, projectTimeline, projectDescription];
         if (requiredFields.some(field => !field) || privacyPolicy !== 'on') {
             return NextResponse.json({ message: 'Missing required fields or privacy policy not accepted.' }, { status: 400 });
         }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email!)) { // Use ! assertion after null check
-          return NextResponse.json({ message: 'Invalid email format.' }, { status: 400 });
+        if (!emailRegex.test(email!)) {
+            return NextResponse.json({ message: 'Invalid email format.' }, { status: 400 });
         }
-        // Add more specific validation if needed (e.g., phone format)
 
+        // --- Prepare Data for Database ---
+        // Convert arrays to strings for varchar(30) fields, truncate if necessary
+        const questionProducts = interestedProducts.join(', ').substring(0, 30);
+        const questionSolutions = interestedSolutions.join(', ').substring(0, 30);
+        // Truncate description to fit varchar(300)
+        const truncatedDescription = projectDescription!.substring(0, 300);
+
+        // --- Save to Database ---
+        const query = `
+            INSERT INTO quoteform (
+                first_name, last_name, email, phone, company, job_title,
+                question_interest, question_products, question_solutions,
+                industry, project_timeline, description, estimated_budget
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `;
+        const values = [
+            firstName!.substring(0, 50),
+            lastName!.substring(0, 50),
+            email!.substring(0, 50),
+            phone!.substring(0, 15),
+            company!.substring(0, 30),
+            jobTitle!.substring(0, 50),
+            interestType!.substring(0, 30),
+            questionProducts,
+            questionSolutions,
+            industry!.substring(0, 30),
+            projectTimeline!.substring(0, 30),
+            truncatedDescription,
+            budget ? budget.substring(0, 30) : null,
+        ];
+
+        try {
+            await pool.query(query, values);
+            console.log(`Quote request saved to database for ${email}`);
+        } catch (dbError) {
+            console.error('Database error:', dbError);
+            return NextResponse.json({ message: 'Failed to save quote request to database.' }, { status: 500 });
+        }
 
         // --- Prepare Email ---
-        const recipientEmail = process.env.QUOTE_REQUEST_EMAIL_TO || process.env.EMAIL_TO; // Use specific or fallback
-         if (!recipientEmail) {
-             console.error('Recipient email address (QUOTE_REQUEST_EMAIL_TO or EMAIL_TO) is not configured.');
-             return NextResponse.json({ message: 'Server configuration error.' }, { status: 500 });
-         }
+        const recipientEmail = process.env.QUOTE_REQUEST_EMAIL_TO || process.env.EMAIL_TO;
+        if (!recipientEmail) {
+            console.error('Recipient email address (QUOTE_REQUEST_EMAIL_TO or EMAIL_TO) is not configured.');
+            return NextResponse.json({ message: 'Server configuration error.' }, { status: 500 });
+        }
 
         const fullName = `${firstName} ${lastName}`;
 
         const mailOptions = {
             from: `"${fullName}" <${process.env.EMAIL_SERVER_USER}>`,
-            replyTo: email!, // Use ! assertion after null check
+            replyTo: email!,
             to: recipientEmail,
             subject: `Quote Request from ${company} (${fullName}) - ${interestType}`,
 
@@ -120,7 +155,7 @@ Privacy Policy Accepted: Yes
                         <h2 style="margin: 0; color: #333; font-size: 20px;">New Quote Request Received</h2>
                     </div>
                     <div style="padding: 20px;">
-                        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 5px;">Contact Information</h3>
+                        <h3 style="margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 5px;">Contact Information</h3 iht>
                         <p><strong>Name:</strong> ${fullName}</p>
                         <p><strong>Company:</strong> ${company}</p>
                         <p><strong>Job Title:</strong> ${jobTitle}</p>
@@ -145,7 +180,7 @@ Privacy Policy Accepted: Yes
                         <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 25px 0;">
                         <p style="font-size: 14px;">Privacy Policy Accepted: Yes</p>
                     </div>
-                     <div style="background-color: #f7f7f7; padding: 10px 20px; border-top: 1px solid #e0e0e0; text-align: center;">
+                    <div style="background-color: #f7f7f7; padding: 10px 20px; border-top: 1px solid #e0e0e0; text-align: center;">
                         <p style="font-size: 12px; color: #888; margin: 0;">Received via website quote request form.</p>
                     </div>
                 </div>
@@ -163,10 +198,10 @@ Privacy Policy Accepted: Yes
         }
 
     } catch (error) {
-        console.error('API Route Error (/api/inquiry):', error);
-         if (error instanceof Error && error.message.includes('Could not parse content as FormData')) {
-             return NextResponse.json({ message: 'Invalid request format.' }, { status: 400 });
-         }
+        console.error('API Route Error (/api/quote-request):', error);
+        if (error instanceof Error && error.message.includes('Could not parse content as FormData')) {
+            return NextResponse.json({ message: 'Invalid request format.' }, { status: 400 });
+        }
         return NextResponse.json({ message: 'Internal Server Error.' }, { status: 500 });
     }
 }

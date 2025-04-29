@@ -2,6 +2,9 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import pool from '@/lib/db'; // Adjust the import path to your db utility
+import { PoolConnection, ResultSetHeader } from 'mysql2/promise'; // Import types
+
 
 // --- Nodemailer Transporter Setup (Consider moving to a lib file) ---
 // Ensure environment variables are set: EMAIL_SERVER_USER, EMAIL_SERVER_PASSWORD, etc.
@@ -22,6 +25,7 @@ const transporter = nodemailer.createTransport({
 
 
 export async function POST(request: NextRequest) {
+    let dbConnection: PoolConnection | undefined; // For releasing in finally block
     try {
         const formData = await request.formData();
 
@@ -47,6 +51,7 @@ export async function POST(request: NextRequest) {
         }
 
         // File validation
+        
         if (!resumeFile || resumeFile.size === 0) {
             return NextResponse.json({ message: 'Resume file is required.' }, { status: 400 });
         }
@@ -64,6 +69,46 @@ export async function POST(request: NextRequest) {
         // --- Prepare Email ---
         // Convert resume File to Buffer for Nodemailer attachment
         const resumeBuffer = Buffer.from(await resumeFile.arrayBuffer());
+
+
+
+        let insertId: number | string | null = null;
+        try{
+            dbConnection = await pool.getConnection();
+            console.log('DB connection acquired for internship application POST.');
+            const sql = `
+                INSERT INTO resumeform (
+                    full_name, email, phone, education_background, area_of_interest, preferred_start_date, resume_file, message
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const values = [
+                name,
+                email,
+                phone || null,              // Store NULL if phone is not provided
+                education,
+                area,
+                startDate || null, // Store NULL if date is not provided (ensure format compatibility)
+                resumeBuffer,               // The file content as a Buffer for MEDIUMBLOB
+                message
+
+            ];
+
+            const [result] = await dbConnection.execute<ResultSetHeader>(sql, values);
+            insertId = result.insertId; // Store the ID of the inserted row
+            console.log(`resume submission saved to mysql db, insert ID: ${insertId}`)
+
+        } catch (dbError) {
+            console.error('MySQL Database Error saving internship application form:', dbError);
+            // Important: Return error response if database save fails
+            return NextResponse.json({ message: 'Database error: Failed to save submission.' }, { status: 500 });
+        } finally {
+            if (dbConnection) {
+                dbConnection.release();
+                console.log('DB connection released for internship application POST.');
+            }
+        }
+
+
 
         // Determine recipient (use a specific env var or fallback)
         const recipientEmail = process.env.INTERNSHIP_EMAIL_TO || process.env.EMAIL_TO;

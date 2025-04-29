@@ -370,7 +370,7 @@ export default function SiteHeader() {
       {mobileMenuOpen && (
         <div className="md:hidden overflow-hidden bg-background/95 backdrop-blur-lg border-b transition-all duration-300">
           <div className="flex items-center justify-between py-2 px-4">
-            <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
+            {/* <Link href="/" className="flex items-center space-x-2" onClick={() => setMobileMenuOpen(false)}>
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/LOGO%20ICON-pWeUYdnNZxYhdOSdEF6Cg6JU2Ak7uX.png"
                 alt="SenseLive Logo"
@@ -379,7 +379,7 @@ export default function SiteHeader() {
                 className="h-[39px] w-[39px]"
               />
               <span className="font-bold text-xl tracking-tight">SenseLive</span>
-            </Link>
+            </Link> */}
           </div>
           <div className="container py-4 space-y-1">
             {routes.map((route) => (
