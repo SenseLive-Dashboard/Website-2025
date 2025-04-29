@@ -204,7 +204,7 @@ export function HeroSectionEnhanced() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[100vh] flex items-start overflow-hidden scroll-snap-align-start"
+      className="relative w-full flex items-start overflow-hidden scroll-snap-align-start"
       onMouseEnter={() => setAutoplay(true)}
       onMouseLeave={() => setAutoplay(true)}
       aria-roledescription="carousel"
@@ -316,8 +316,8 @@ export function HeroSectionEnhanced() {
           </div>
         </div>
 
-        {/* Progress bar and slide controls (unchanged) */}
-        <div className="mt-12 flex flex-col gap-4">
+        {/* Progress bar and slide controls - moved up and added more spacing */}
+        <div className="mt-8 mb-16 flex flex-col gap-4">
           <div className="w-full bg-muted/50 h-1 rounded-full overflow-hidden">
             <div
               className="h-full bg-primary transition-all duration-100 ease-linear"
@@ -374,8 +374,8 @@ export function HeroSectionEnhanced() {
         </div>
       </div>
 
-      {/* Scroll indicator (unchanged) */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-fade-up animate-delay-1000">
+      {/* Scroll indicator - positioning adjusted and z-index added */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-fade-up animate-delay-1000 z-20">
         <div className="flex flex-col items-center gap-2">
           <span className="text-sm text-muted-foreground">Scroll to explore</span>
           <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center p-1">
