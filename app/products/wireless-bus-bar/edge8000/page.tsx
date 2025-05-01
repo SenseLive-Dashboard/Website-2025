@@ -234,7 +234,7 @@ export default function Edge8000Page() {
                     <div className="relative">
                       <div className="absolute -inset-1 from-primary to-primary/50 rounded-lg opacity-30"></div>
                       <Image
-                        src="/products/wireless-bus-bar/edge8000/complete-product.png"
+                        src="/products/wireless-bus-bar/edge8000/architecture.png"
                         alt="SenseLive Edge8000 complete system"
                         width={500}
                         height={200}

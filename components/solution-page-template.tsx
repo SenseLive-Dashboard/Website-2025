@@ -80,13 +80,11 @@ export function SolutionPageTemplate({
                   </Button>
                 </Link>
                 <Link href="/contact">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full min-[400px]:w-auto font-medium border-white text-white hover:bg-white/10 transition-colors"
-                  >
-                    Contact Sales
-                  </Button>
+                <button
+                  className="px-6 py-3 rounded-md bg-teal-700 hover:bg-teal-800 text-white font-medium transition-colors w-full min-[400px]:w-auto"
+                >
+                  Contact Sales
+                </button>
                 </Link>
               </div>
             </div>
@@ -182,7 +180,7 @@ export function SolutionPageTemplate({
                 ))}
               </ul>
               <Link href={`/solutions/${title.toLowerCase().replace(/\s+/g, "-")}/architecture`}>
-                <Button className="gap-1 transition-all group">
+                <Button className="gap-1 transition-all group my-8 mx-6">
                   Learn More About Architecture
                   <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Button>
@@ -307,13 +305,11 @@ export function SolutionPageTemplate({
               </Button>
             </Link>
             <Link href="/contact">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 font-medium transition-colors"
-              >
-                Contact Sales
-              </Button>
+            <button
+                  className="px-6 py-3 rounded-md bg-teal-700 hover:bg-teal-800 text-white font-medium transition-colors w-full min-[400px]:w-auto"
+                >
+                  Contact Sales
+                </button>
             </Link>
           </div>
         </div>

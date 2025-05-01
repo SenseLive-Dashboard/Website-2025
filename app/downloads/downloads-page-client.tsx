@@ -12,7 +12,7 @@ import { DownloadIcon } from "lucide-react"
 interface DownloadCardProps {
   title: string
   description: string
-  type: "datasheet" | "manual" | "firmware" | "software" | "whitepaper"
+  type: "datasheet" | "manual" | "software" 
   version?: string
   date: string
   fileSize?: string
@@ -705,24 +705,24 @@ export default function DownloadsPageClient() {
               >
                 User Manuals
               </TabsTrigger>
-              <TabsTrigger
+              {/* <TabsTrigger
                 value="firmware"
                 className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent py-3 text-muted-foreground data-[state=active]:text-foreground"
               >
                 Firmware
-              </TabsTrigger>
+              </TabsTrigger> */}
               <TabsTrigger
                 value="software"
                 className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent py-3 text-muted-foreground data-[state=active]:text-foreground"
               >
                 Software
               </TabsTrigger>
-              <TabsTrigger
+              {/* <TabsTrigger
                 value="whitepapers"
                 className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent py-3 text-muted-foreground data-[state=active]:text-foreground"
               >
                 White Papers
-              </TabsTrigger>
+              </TabsTrigger> */}
             </TabsList>
 
             <TabsContent value="datasheets" className="pt-6">

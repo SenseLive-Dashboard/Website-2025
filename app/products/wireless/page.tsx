@@ -28,7 +28,7 @@ export default function WirelessProductsPage() {
   // Product data
   const products = [
     {
-      id: "x7700D",
+      id: "x7700d",
       name: "SenseLive X7700D",
       description: "DIN-Rail LoRa Device",
       specs: [

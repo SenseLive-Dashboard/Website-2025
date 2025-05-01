@@ -46,7 +46,7 @@ export default function ProductionMonitoringPage() {
             description: "Securely transmit data to the cloud for remote monitoring and analysis.",
           },
         ]}
-        architectureImage="/solutions/production/production2.png"
+        architectureImage="/solutions/production/architecture.png"
         architectureSteps={[
           {
             title: "Data Collection",

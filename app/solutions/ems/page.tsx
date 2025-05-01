@@ -64,7 +64,7 @@ export default function EMSPage() {
               "Seamlessly integrate with existing BMS, SCADA, and other enterprise systems for a unified approach.",
           },
         ]}
-        architectureImage="/solutions/ems/ems2.png"
+        architectureImage="/solutions/ems/architecture.png"
         architectureSteps={[
           {
             title: "Data Collection",

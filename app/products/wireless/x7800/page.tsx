@@ -22,7 +22,7 @@ const relatedProducts = [
     name: "SenseLive X7800",
     description: "Wall-Mounted LoRa Device with RS232 Features",
     specs: ["Wall Mounted & Compact Design", "Dual RS323 & RS485 Support", "LoRaWAN & private LoRa Protocol", "Low Power Consumption"],
-    image: "/products/wireless/X7800/main.png",
+    image: "/products/wireless/senseliveX7800/main.png",
     category: "wireless",
   },
   {
@@ -150,11 +150,11 @@ export default function ProductPage() {
             </div>
 
             <ProductImageGallery
-              mainImage="/products/wireless/X7800/main.png"
+              mainImage="/products/wireless/senseliveX7800/main.png"
               galleryImages={[
-                "/products/wireless/X7800/main2.png",
-                "/products/wireless/X7800/main3.png",
-                "/products/wireless/X7800/main4.png",
+                "/products/wireless/senseliveX7800/main2.png",
+                "/products/wireless/senseliveX7800/main3.png",
+                "/products/wireless/senseliveX7800/main4.png",
               ]}
               productName="SenseLive X7800"
             />

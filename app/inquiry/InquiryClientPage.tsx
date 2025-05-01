@@ -274,11 +274,11 @@ export default function InquiryClientPage() {
                                  <SelectValue placeholder="Select your budget range (optional)" />
                              </SelectTrigger>
                              <SelectContent>
-                                 <SelectItem value="under-10k">Under $10,000</SelectItem>
-                                 <SelectItem value="10k-50k">$10,000 - $50,000</SelectItem>
-                                 <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                                 <SelectItem value="100k-250k">$100,000 - $250,000</SelectItem>
-                                 <SelectItem value="250k-plus">$250,000+</SelectItem>
+                                 <SelectItem value="under-10k">Under ₹10,000</SelectItem>
+                                 <SelectItem value="10k-50k">₹10,000 - ₹50,000</SelectItem>
+                                 <SelectItem value="50k-100k">₹50,000 - ₹100,000</SelectItem>
+                                 <SelectItem value="100k-250k">₹100,000 - ₹250,000</SelectItem>
+                                 <SelectItem value="250k-plus">₹250,000+</SelectItem>
                                  <SelectItem value="undecided">Undecided</SelectItem>
                              </SelectContent>
                          </Select>

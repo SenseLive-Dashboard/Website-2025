@@ -27,7 +27,7 @@ export default function WirelessProductsPage() {
         "Wide Temperature Range",
       ],
       image: "/products/fiber/X8555/x8555img1.png",
-      category: "wireless",
+      category: "fiber",
     },
 
   ]
@@ -90,7 +90,7 @@ export default function WirelessProductsPage() {
                 description={product.description}
                 specs={product.specs}
                 image={product.image}
-                category="wifi"
+                category={product.category}
               />
             ))}
           </div>
