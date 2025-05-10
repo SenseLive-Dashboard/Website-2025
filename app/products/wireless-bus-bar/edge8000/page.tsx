@@ -369,7 +369,7 @@ export default function Edge8000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/application1.png"
                           alt="Bus Bar & Switchgear"
                           fill
                           className="object-cover rounded-t-lg"
@@ -389,7 +389,7 @@ export default function Edge8000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/application2.png"
                           alt="Surface Temperature Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -409,7 +409,7 @@ export default function Edge8000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/application3.png"
                           alt="Energy Management"
                           fill
                           className="object-cover rounded-t-lg"
@@ -429,7 +429,7 @@ export default function Edge8000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/application4.png"
                           alt="Cold-Line Monitoring"
                           fill
                           className="object-cover rounded-t-lg"

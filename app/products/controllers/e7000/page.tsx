@@ -189,7 +189,7 @@ export default function E7000Page() {
                       alt="SenseLive E7000 Remote I/O Controller"
                       width={600}
                       height={400}
-                      className="relative rounded-lg object-contain shadow-xl bg-white/90 p-4"
+                      className="relative rounded-lg object-contain shadow-xl p-4"
                     />
                   </div>
                   <div className="space-y-4">
@@ -382,10 +382,10 @@ export default function E7000Page() {
                   <Card className="border-muted">
                     <div className="relative aspect-video">
                       <Image
-                        src="/products/controllers/e7000/main.png"
+                        src="/products/controllers/e7000/application1.png"
                         alt="Building Automation with SenseLive E7000"
                         fill
-                        className="object-contain rounded-t-lg p-4 bg-white/90"
+                        className="object-contain"
                       />
                     </div>
                     <CardHeader className="pb-2">
@@ -403,10 +403,10 @@ export default function E7000Page() {
                   <Card className="border-muted">
                     <div className="relative aspect-video">
                       <Image
-                        src="/products/controllers/e7000/front.png"
+                        src="/products/controllers/e7000/application2.png"
                         alt="Industrial Process Control with SenseLive E7000"
                         fill
-                        className="object-contain rounded-t-lg p-4 bg-white/90"
+                        className=""
                       />
                     </div>
                     <CardHeader className="pb-2">
@@ -424,10 +424,10 @@ export default function E7000Page() {
                   <Card className="border-muted">
                     <div className="relative aspect-video">
                       <Image
-                        src="/products/controllers/e7000/back.png"
+                        src="/products/controllers/e7000/application3.png"
                         alt="Utility Monitoring with SenseLive E7000"
                         fill
-                        className="object-contain rounded-t-lg p-4 bg-white/90"
+                        className="object-contain "
                       />
                     </div>
                     <CardHeader className="pb-2">

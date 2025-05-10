@@ -112,21 +112,21 @@ export default function E7500Page() {
       subtitle: "Smart Buildings",
       description:
         "Monitor and control HVAC systems, lighting, and security systems in commercial buildings for improved energy efficiency and comfort.",
-      image: "/placeholder.svg?height=200&width=300&text=Building+Automation",
+      image: "/products/controllers/e7000/application1.png",
     },
     {
       title: "Industrial Process Control",
       subtitle: "Manufacturing",
       description:
         "Integrate with SCADA systems to monitor and control industrial processes, ensuring optimal operation and early detection of issues.",
-      image: "/placeholder.svg?height=200&width=300&text=Industrial+Control",
+      image: "/products/controllers/e7000/application2.png",
     },
     {
       title: "Utility Monitoring",
       subtitle: "Energy & Water",
       description:
         "Monitor power consumption, water flow, and other utility metrics in remote locations, with real-time alerts for abnormal conditions.",
-      image: "/placeholder.svg?height=200&width=300&text=Utility+Monitoring",
+      image: "/products/controllers/e7000/application3.png",
     },
   ]
 

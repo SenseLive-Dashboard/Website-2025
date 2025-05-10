@@ -170,7 +170,7 @@ export default function X9000Page() {
         title: "Remote Equipment Monitoring",
         industry: "Manufacturing",
         description: "Enables real-time monitoring and control of manufacturing equipment in remote locations.",
-        image: "/placeholder.svg?height=200&width=300",
+        image: "/products/connectivity/x9000/application1.png",
       },
       {
         title: "Smart Grid Monitoring",
@@ -554,7 +554,7 @@ export default function X9000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/connectivity/x9000/application1.png"
                           alt="Remote Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -573,7 +573,7 @@ export default function X9000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/connectivity/x9000/application2.png"
                           alt="Industrial Automation"
                           fill
                           className="object-cover rounded-t-lg"
@@ -592,7 +592,7 @@ export default function X9000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/connectivity/x9000/application3.png"
                           alt="Smart Agriculture"
                           fill
                           className="object-cover rounded-t-lg"
@@ -611,7 +611,7 @@ export default function X9000Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/application3.png"
                           alt="Energy Management"
                           fill
                           className="object-cover rounded-t-lg"

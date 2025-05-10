@@ -1,23 +1,22 @@
-import type React from "react"
-import "@/app/globals.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type React from "react";
+import "@/app/globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme-provider"
-import SiteHeader from "@/components/site-header"
-import { SiteFooter } from "@/components/site-footer"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { ChatWidget } from "@/components/chat-widget"
-import { CookieConsent } from "@/components/cookie-consent"
-import { OrganizationStructuredData } from "@/components/structured-data"
+import { ThemeProvider } from "@/components/theme-provider";
+import { ConditionalHeader } from "@/components/conditional-header"; // New component
+import { SiteFooter } from "@/components/site-footer";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { ChatWidget } from "@/components/chat-widget";
+import { CookieConsent } from "@/components/cookie-consent";
+import { OrganizationStructuredData } from "@/components/structured-data";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-})
+});
 
-// Update metadata for better SEO
 export const metadata: Metadata = {
   title: {
     default: "SenseLive | Advanced IoT Solutions for Industrial Automation",
@@ -66,8 +65,8 @@ export const metadata: Metadata = {
     description:
       "Leading provider of IoT hardware and solutions for industrial automation, energy management, and smart infrastructure.",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -100,7 +99,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen flex-col">
-            <SiteHeader />
+            <ConditionalHeader /> {/* Use the new Client Component */}
             <main className="flex-1">{children}</main>
             <SiteFooter />
             <ScrollToTop />
@@ -110,9 +109,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
-
-
-
-import './globals.css'

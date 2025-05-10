@@ -212,7 +212,7 @@ export default function SenseCT222Page() {
                     <div className="relative">
                       <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/50 rounded-lg blur-md opacity-30"></div>
                       <Image
-                        src="/products/wireless-bus-bar/SenseCT222/SenseCT222img1.png"
+                        src="/products/wireless-bus-bar/SenseCT222/SenseCT222img1_1.png"
                         alt="SenseCT-222 in use"
                         width={600}
                         height={400}
@@ -383,7 +383,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/edge8000/architecture.png"
                           alt="Bus Bar Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -403,7 +403,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/SenseCT222/application2.png"
                           alt="Power Cable Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -423,7 +423,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/SenseCT222/application3.png"
                           alt="Circuit Breaker Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -443,7 +443,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/SenseBT222/application2.png"
                           alt="Transformer Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -463,7 +463,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/SenseCT222/application4.png"
                           alt="Motor Connection Monitoring"
                           fill
                           className="object-cover rounded-t-lg"
@@ -483,7 +483,7 @@ export default function SenseCT222Page() {
                     <Card className="border-muted">
                       <div className="relative aspect-video">
                         <Image
-                          src="/placeholder.svg?height=200&width=300"
+                          src="/products/wireless-bus-bar/SenseCT222/application6.png"
                           alt="Data Center Power Monitoring"
                           fill
                           className="object-cover rounded-t-lg"

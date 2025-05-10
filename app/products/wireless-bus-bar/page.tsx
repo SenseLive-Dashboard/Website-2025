@@ -86,7 +86,7 @@ export default function WirelessBusBarPage() {
                   variant="outline"
                   className="px-4 py-2 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  Al Products
+                  All Products
                 </Badge>
               </Link>
               {productCategories.map((category) => (
